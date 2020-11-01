@@ -154,6 +154,335 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/LRU-Cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/LRU-Cache/" class="post-title-link" itemprop="url">LRU Cache</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-01 22:33:54 22:33:54" itemprop="dateCreated datePublished" datetime="2020-11-01T22:33:54+08:00">2020-11-01 22:33:54</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 22:38:29 22:38:29" itemprop="dateModified" datetime="2020-11-01T22:38:29+08:00">2020-11-01 22:38:29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/lru-cache/">146. LRU Cache</a></p>
+<p>Using linked list: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedNode</span> &#123;</span></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    LinkedNode *prev, *next;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    LinkedNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;val = val;</span><br><span class="line">        <span class="keyword">this</span>-&gt;prev = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span> &#123;</span></span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">    LinkedNode *head, *tail;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    LinkedList() &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;head = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;tail = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">erase</span><span class="params">(LinkedNode *p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == tail) &#123;</span><br><span class="line">            tail = tail-&gt;prev;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p == head) &#123;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;prev) &#123;</span><br><span class="line">            p-&gt;prev-&gt;next = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;next) &#123;</span><br><span class="line">            p-&gt;next-&gt;prev = p-&gt;prev;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">LinkedNode *<span class="title">begin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> head; &#125;</span><br><span class="line">    <span class="function">LinkedNode *<span class="title">rbegin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> tail; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_front</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        LinkedNode *node = <span class="keyword">new</span> LinkedNode(val);</span><br><span class="line">        node-&gt;prev = <span class="literal">nullptr</span>;</span><br><span class="line">        node-&gt;next = head;</span><br><span class="line">        <span class="keyword">if</span> (head) &#123;</span><br><span class="line">            head-&gt;prev = node;</span><br><span class="line">        &#125;</span><br><span class="line">        head = node;</span><br><span class="line">        <span class="keyword">if</span> (tail == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            tail = head;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop_back</span><span class="params">()</span> </span>&#123; erase(tail); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> &#123;</span></span><br><span class="line">    LinkedList lst;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, LinkedNode *&gt; key_to_node;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; key_to_value;</span><br><span class="line">    <span class="keyword">int</span> capacity;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    LRUCache(<span class="keyword">int</span> capacity) &#123; <span class="keyword">this</span>-&gt;capacity = capacity; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> it = key_to_node.find(key);</span><br><span class="line">        <span class="keyword">if</span> (it == key_to_node.end()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> value = key_to_value[key];</span><br><span class="line">        put(key, value);</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> it = key_to_node.find(key);</span><br><span class="line">        <span class="keyword">if</span> (it != key_to_node.end()) &#123;</span><br><span class="line">            lst.erase(it-&gt;second);</span><br><span class="line">            key_to_node.erase(key);</span><br><span class="line">            key_to_value.erase(key);</span><br><span class="line">        &#125;</span><br><span class="line">        lst.push_front(key);</span><br><span class="line">        key_to_node[key] = lst.begin();</span><br><span class="line">        key_to_value[key] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (key_to_node.size() &gt; capacity) &#123;</span><br><span class="line">            LinkedNode *tail = lst.rbegin();</span><br><span class="line">            key_to_node.erase(tail-&gt;val);</span><br><span class="line">            key_to_value.erase(tail-&gt;val);</span><br><span class="line">            lst.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr />
+<p>Using STL: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="built_in">list</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; lst;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">list</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;::iterator&gt; mp;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    LRUCache(<span class="keyword">int</span> capacity) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;capacity = capacity;</span><br><span class="line">        lst.clear();</span><br><span class="line">        mp.clear();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> it = mp.find(key);</span><br><span class="line">        <span class="keyword">if</span> (it == mp.end()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> value = it-&gt;second-&gt;second;</span><br><span class="line">        put(key, value);</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> keyToIter = mp.find(key);</span><br><span class="line">        <span class="keyword">if</span> (keyToIter != mp.end()) &#123;</span><br><span class="line">            lst.erase(keyToIter-&gt;second);</span><br><span class="line">            mp.erase(keyToIter);</span><br><span class="line">        &#125;</span><br><span class="line">        lst.push_front(&#123;key, value&#125;);</span><br><span class="line">        mp[key] = lst.begin();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (lst.size() &gt; capacity) &#123;</span><br><span class="line">            mp.erase(lst.rbegin()-&gt;first);</span><br><span class="line">            lst.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/Shuffle-An-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Shuffle-An-Array/" class="post-title-link" itemprop="url">Shuffle An Array</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-01 22:32:44 22:32:44" itemprop="dateCreated datePublished" datetime="2020-11-01T22:32:44+08:00">2020-11-01 22:32:44</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 22:36:51 22:36:51" itemprop="dateModified" datetime="2020-11-01T22:36:51+08:00">2020-11-01 22:36:51</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/shuffle-an-array/">384. Shuffle an Array</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">        self.ori = copy.copy(nums)</span><br><span class="line">        self.nums = nums</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.ori</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.nums)):</span><br><span class="line">            pos = random.randrange(i, len(self.nums))</span><br><span class="line">            self.nums[i], self.nums[pos] = self.nums[pos], self.nums[i]</span><br><span class="line">        <span class="keyword">return</span> self.nums</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/Heap-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Heap-Sort/" class="post-title-link" itemprop="url">Heap Sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-01 22:06:56 22:06:56" itemprop="dateCreated datePublished" datetime="2020-11-01T22:06:56+08:00">2020-11-01 22:06:56</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 22:13:21 22:13:21" itemprop="dateModified" datetime="2020-11-01T22:13:21+08:00">2020-11-01 22:13:21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> p = i; p &amp;&amp; vec[(p - <span class="number">1</span>) / <span class="number">2</span>] &lt; vec[p]; p = (p - <span class="number">1</span>) / <span class="number">2</span>) &#123;</span><br><span class="line">            swap(vec[p], vec[(p - <span class="number">1</span>) / <span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = vec.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">int</span> top = vec[<span class="number">0</span>];</span><br><span class="line">        vec[<span class="number">0</span>] = vec[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">0</span>, c; (c = p * <span class="number">2</span> + <span class="number">1</span>) &lt; i; p = c) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c + <span class="number">1</span> &lt; i &amp;&amp; vec[c] &lt; vec[c + <span class="number">1</span>]) c++;</span><br><span class="line">            <span class="keyword">if</span> (vec[c] &lt; vec[p]) <span class="keyword">break</span>;</span><br><span class="line">            swap(vec[c], vec[p]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        vec[i] = top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="function">default_random_engine <span class="title">rd</span><span class="params">(time(<span class="literal">NULL</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cas = <span class="number">0</span>; cas &lt; <span class="number">100</span>; cas++) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">            vec.push_back(rd());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> stl = vec;</span><br><span class="line">        heap_sort(vec);</span><br><span class="line">        sort(stl.begin(), stl.end());</span><br><span class="line">        assert(vec == stl);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/Merge-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Merge-Sort/" class="post-title-link" itemprop="url">Merge Sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-01 21:53:42 21:53:42" itemprop="dateCreated datePublished" datetime="2020-11-01T21:53:42+08:00">2020-11-01 21:53:42</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 22:13:24 22:13:24" itemprop="dateModified" datetime="2020-11-01T22:13:24+08:00">2020-11-01 22:13:24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ms</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;temp)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">    ms(l, mid, vec, temp);</span><br><span class="line">    ms(mid + <span class="number">1</span>, r, vec, temp);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>; i &lt;= mid || j &lt;= r;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; mid) &#123;</span><br><span class="line">            temp[cnt++] = vec[j++];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; r) &#123;</span><br><span class="line">            temp[cnt++] = vec[i++];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (vec[i] &lt;= vec[j]) &#123;</span><br><span class="line">            temp[cnt++] = vec[i++];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temp[cnt++] = vec[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = l; i &lt; cnt; i++, j++) &#123;</span><br><span class="line">        vec[j] = temp[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">temp</span><span class="params">(vec.size())</span></span>;</span><br><span class="line">    ms(<span class="number">0</span>, vec.size() - <span class="number">1</span>, vec, temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="function">default_random_engine <span class="title">rd</span><span class="params">(time(<span class="literal">NULL</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cas = <span class="number">0</span>; cas &lt; <span class="number">100</span>; cas++) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">            vec.push_back(rd());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> stl = vec;</span><br><span class="line">        merge_sort(vec);</span><br><span class="line">        sort(stl.begin(), stl.end());</span><br><span class="line">        assert(vec == stl);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/Bubble-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Bubble-Sort/" class="post-title-link" itemprop="url">Bubble Sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-01 21:53:23 21:53:23" itemprop="dateCreated datePublished" datetime="2020-11-01T21:53:23+08:00">2020-11-01 21:53:23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 22:13:26 22:13:26" itemprop="dateModified" datetime="2020-11-01T22:13:26+08:00">2020-11-01 22:13:26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = vec.size() - <span class="number">1</span>; j &gt; i; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vec[j] &lt; vec[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                swap(vec[j], vec[j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="function">default_random_engine <span class="title">rd</span><span class="params">(time(<span class="literal">NULL</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cas = <span class="number">0</span>; cas &lt; <span class="number">100</span>; cas++) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            vec.push_back(rd());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> stl = vec;</span><br><span class="line">        bubble_sort(vec);</span><br><span class="line">        sort(stl.begin(), stl.end());</span><br><span class="line">        assert(vec == stl);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/10/04/Ubuntu%E6%9B%B4%E6%94%B9%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E9%80%9F%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -514,379 +843,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/21/Nginx-Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/21/Nginx-Learning/" class="post-title-link" itemprop="url">Nginx Learning</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-21 13:03:00 13:03:00" itemprop="dateCreated datePublished" datetime="2020-05-21T13:03:00+08:00">2020-05-21 13:03:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/">nginx documentation</a></p>
-<h1 id="compile">Compile</h1>
-<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/configure.html">Building nginx from Sources</a></p>
-<h1 id="reload">Reload</h1>
-<p><code>$ nginx -s reload</code></p>
-<h1 id="auto-index">Auto Index</h1>
-<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html">Module ngx_http_autoindex_module</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/19/Learn-Memcached/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/19/Learn-Memcached/" class="post-title-link" itemprop="url">Learn Memcached</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-19 18:33:00 18:33:00" itemprop="dateCreated datePublished" datetime="2020-05-19T18:33:00+08:00">2020-05-19 18:33:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="deployment">Deployment</h1>
-<p>https://github.com/memcached/memcached See the file <code>BUILD</code> to learn how to build.</p>
-<p>The default configuration file <code>/etc/memcached.conf</code> is used by <code>scripts/start-memcached</code> when using this script to start service.</p>
-<h1 id="protocol">Protocol</h1>
-<p>Protocol is described in <code>doc/protocol.txt</code>.</p>
-<p><code>server</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ memcached -vv -m 3 -M</span><br><span class="line">&lt;17 server listening (auto-negotiate)</span><br><span class="line">&lt;18 server listening (auto-negotiate)</span><br><span class="line">&lt;19 new auto-negotiating client connection</span><br><span class="line">19: Client using the ascii protocol</span><br><span class="line">&lt;19 get foo</span><br><span class="line">&gt;19 END</span><br><span class="line">&lt;19 set foo 0 0 3</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 get foo</span><br><span class="line">&gt;19 sending key foo</span><br><span class="line">&gt;19 END</span><br></pre></td></tr></table></figure></p>
-<p><code>client</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ nc -c localhost 11211</span><br><span class="line">get foo</span><br><span class="line">END</span><br><span class="line">set foo 0 0 3</span><br><span class="line">bar</span><br><span class="line">STORED</span><br><span class="line">get foo</span><br><span class="line">VALUE foo 0 3</span><br><span class="line">bar</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
-<h1 id="evication">Evication</h1>
-<p><code>server</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$ memcached -vv -m 3 -M</span><br><span class="line">&lt;19 new auto-negotiating client connection</span><br><span class="line">19: Client using the ascii protocol</span><br><span class="line">&lt;19 set 0 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 1 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 2 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 3 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 4 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 5 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 6 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">......</span><br><span class="line">&lt;19 set 280 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 281 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 282 0 0 10240</span><br><span class="line">&gt;19 SERVER_ERROR out of memory storing object</span><br><span class="line">&lt;19 connection closed.</span><br></pre></td></tr></table></figure></p>
-<p><code>client</code>: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pymemcache.client <span class="keyword">import</span> base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    client = base.Client((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">11211</span>), default_noreply=<span class="literal">False</span>)</span><br><span class="line">    sz = <span class="number">0</span></span><br><span class="line">    pos = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        key = str(pos)</span><br><span class="line">        value = <span class="string">&#x27;x&#x27;</span> * <span class="number">10240</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            res = client.set(key, value)</span><br><span class="line">            <span class="keyword">if</span> res:</span><br><span class="line">                sz += len(key) + len(value)</span><br><span class="line">                pos += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">&#x27;exception: %s, sz: %s&#x27;</span> % (e, sz))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python3 main.py</span><br><span class="line">exception: b&#39;out of memory storing object&#39;, sz: 2888416</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;bytes&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;github.com/bradfitz/gomemcache/memcache&quot;</span></span><br><span class="line">    logger <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/x-cray/logrus-prefixed-formatter&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    logger.SetFormatter(&amp;prefixed.TextFormatter&#123;</span><br><span class="line">        TimestampFormat: <span class="string">&quot;2006-01-02 15:04:05&quot;</span>,</span><br><span class="line">        FullTimestamp:   <span class="literal">true</span>,</span><br><span class="line">        ForceFormatting: <span class="literal">true</span>,</span><br><span class="line">        DisableColors:   <span class="literal">true</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    logger.SetOutput(os.Stdout)</span><br><span class="line">    logger.SetLevel(logger.DebugLevel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    mc := memcache.New(<span class="string">&quot;localhost:11211&quot;</span>)</span><br><span class="line"></span><br><span class="line">    buf := bytes.NewBuffer(<span class="literal">nil</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10240</span>; i++ &#123;</span><br><span class="line">        buf.WriteRune(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := mc.Set(&amp;memcache.Item&#123;</span><br><span class="line">        Key:   <span class="string">&quot;foo&quot;</span>,</span><br><span class="line">        Value: buf.Bytes(),</span><br><span class="line">    &#125;); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;set error: %v&quot;</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> it, err := mc.Get(<span class="string">&quot;32&quot;</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;get error: %v, is miss: %v&quot;</span>, err, err == memcache.ErrCacheMiss)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        logger.Infof(<span class="string">&quot;key: %v, value: %v&quot;</span>, it.Key, <span class="keyword">string</span>(it.Value))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> it, err := mc.Get(<span class="string">&quot;non&quot;</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;get error: %v, is miss: %v&quot;</span>, err, err == memcache.ErrCacheMiss)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        logger.Infof(<span class="string">&quot;key: %v, value: %v&quot;</span>, it.Key, <span class="keyword">string</span>(it.Value))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2020-05-19 18:21:20] ERROR set error: memcache: unexpected response line from &quot;set&quot;: &quot;SERVER_ERROR out of memory storing object\r\n&quot;</span><br><span class="line">[2020-05-19 18:21:20]  INFO key: 32, value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line">[2020-05-19 18:21:20] ERROR get error: memcache: cache miss, is miss: true</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Control-in-Detail/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/12/TCP-Control-in-Detail/" class="post-title-link" itemprop="url">TCP Control in Detail</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-12 18:30:00 18:30:00" itemprop="dateCreated datePublished" datetime="2020-05-12T18:30:00+08:00">2020-05-12 18:30:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="retransmission">Retransmission</h1>
-<p>TCP sets a timer when it sends data, and if the data is not acknowledged when the timer expires, a timeout or timer-based retransmission of data occurs. The timeout occurs after an interval called the retransmission timeout (RTO). It has another way of initiating a retransmission called fast retransmission or fast retransmit, which usually happens without any delay. Fast retransmit is based on inferring losses by noticing when TCP’s cumulative acknowledgment fails to advance in the ACKs received over time, or when ACKs carrying selective acknowledgment information (SACKs) indicate that out-of-order segments are present at the receiver. Generally speaking, when the sender believes that the receiver might be missing some data, a choice needs to be made between sending new (unsent) data and retransmitting.</p>
-<h2 id="fast-retransmit">Fast retransmit</h2>
-<p><img src="/images/posts/TCP-Control-in-Detail/0.png" /></p>
-<h1 id="flow-control-and-window-management">Flow Control and Window Management</h1>
-<p><img src="/images/posts/TCP-Control-in-Detail/1.png" /> <img src="/images/posts/TCP-Control-in-Detail/2.png" /></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Connection-in-Detail/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/12/TCP-Connection-in-Detail/" class="post-title-link" itemprop="url">TCP Connection in Detail</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-12 17:48:00 17:48:00" itemprop="dateCreated datePublished" datetime="2020-05-12T17:48:00+08:00">2020-05-12 17:48:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="reset">Reset</h1>
-<p>In general, a reset is sent by TCP whenever a segment arrives that does not appear to be correct for the referenced connection. The reset segment elicits no response from the other end—it is not acknowledged at all. The receiver of the reset aborts the connection and advises the application that the connection was reset. This often results in the error indication “Connection reset by peer” or a similar message.</p>
-<h1 id="time-wait">TIME-WAIT</h1>
-<p>http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html</p>
-<p>https://stackoverflow.com/a/60075710/13133551</p>
-<blockquote>
-<p>The two reasons for the existence of the TIME-WAIT state and the 2SML timer:</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>If the last ACK segment is lost, the server TCP, which sets a timer for the last FIN (Finish) bit set, assumes that its FIN is lost and resends it. If the client goes to the CLOSED state and closes the connection before the 2MSL timer expires, it never receives this resent FIN segment, and consequently, the server never receives the final ACK. The server cannot close the connection. The 2MSL timer makes the client wait for a duration that is enough time for an ACK to be lost (one SML) and a FIN to arrive (another SML). If during the TIME-WAIT state, a new FIN arrives, the client sends a new ACK and restarts the 2SML timer.</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>A duplicate segment from one connection might appear in the next one. Assume a client and a server have closed a connection. After a short period, they open a connection with the same socket addresses (same source and destination IP addresses and the same source and destination port numbers). A duplicated segment from the previous connection may arrive in this new connection and be interpreted as belonging to the new connection if there is not enough time between the two connections. To prevent this problem, TCP requires that an incarnation cannot occur unless a 2MSL amount of time has elapsed.</li>
-</ul>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Headers-in-Detail/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/12/TCP-Headers-in-Detail/" class="post-title-link" itemprop="url">TCP Headers in Detail</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-12 17:19:00 17:19:00" itemprop="dateCreated datePublished" datetime="2020-05-12T17:19:00+08:00">2020-05-12 17:19:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="timestamp-option">Timestamp option</h1>
-<p>http://www.networksorcery.com/enp/protocol/tcp/option008.htm</p>
-<h2 id="timestamp-value-tsval.-32-bits.">Timestamp Value (TSval). 32 bits.</h2>
-<p>This field contains the current value of the timestamp clock of the TCP sending the option.</p>
-<h2 id="timestamp-echo-reply-tsecr.-32-bits.">Timestamp Echo Reply (TSecr). 32 bits.</h2>
-<p>This field is only valid if the ACK bit is set in the TCP header. If it is valid, it echos a timestamp value that was sent by the remote TCP in the TSval field of a Timestamps option. When TSecr is not valid, its value must be zero. The TSecr value will generally be from the most recent Timestamp option that was received; however, there are exceptions that are explained below. A TCP may send the Timestamp option in an initial SYN segment (i.e., segment containing a SYN bit and no ACK bit), and may send a TSopt in other segments only if it received a TSopt in the initial SYN segment for the connection.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -954,7 +914,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

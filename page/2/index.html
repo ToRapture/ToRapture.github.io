@@ -154,6 +154,375 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/21/Nginx-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/21/Nginx-Learning/" class="post-title-link" itemprop="url">Nginx Learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-21 13:03:00 13:03:00" itemprop="dateCreated datePublished" datetime="2020-05-21T13:03:00+08:00">2020-05-21 13:03:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/">nginx documentation</a></p>
+<h1 id="compile">Compile</h1>
+<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/configure.html">Building nginx from Sources</a></p>
+<h1 id="reload">Reload</h1>
+<p><code>$ nginx -s reload</code></p>
+<h1 id="auto-index">Auto Index</h1>
+<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html">Module ngx_http_autoindex_module</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/19/Learn-Memcached/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/19/Learn-Memcached/" class="post-title-link" itemprop="url">Learn Memcached</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-19 18:33:00 18:33:00" itemprop="dateCreated datePublished" datetime="2020-05-19T18:33:00+08:00">2020-05-19 18:33:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="deployment">Deployment</h1>
+<p>https://github.com/memcached/memcached See the file <code>BUILD</code> to learn how to build.</p>
+<p>The default configuration file <code>/etc/memcached.conf</code> is used by <code>scripts/start-memcached</code> when using this script to start service.</p>
+<h1 id="protocol">Protocol</h1>
+<p>Protocol is described in <code>doc/protocol.txt</code>.</p>
+<p><code>server</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ memcached -vv -m 3 -M</span><br><span class="line">&lt;17 server listening (auto-negotiate)</span><br><span class="line">&lt;18 server listening (auto-negotiate)</span><br><span class="line">&lt;19 new auto-negotiating client connection</span><br><span class="line">19: Client using the ascii protocol</span><br><span class="line">&lt;19 get foo</span><br><span class="line">&gt;19 END</span><br><span class="line">&lt;19 set foo 0 0 3</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 get foo</span><br><span class="line">&gt;19 sending key foo</span><br><span class="line">&gt;19 END</span><br></pre></td></tr></table></figure></p>
+<p><code>client</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ nc -c localhost 11211</span><br><span class="line">get foo</span><br><span class="line">END</span><br><span class="line">set foo 0 0 3</span><br><span class="line">bar</span><br><span class="line">STORED</span><br><span class="line">get foo</span><br><span class="line">VALUE foo 0 3</span><br><span class="line">bar</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
+<h1 id="evication">Evication</h1>
+<p><code>server</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$ memcached -vv -m 3 -M</span><br><span class="line">&lt;19 new auto-negotiating client connection</span><br><span class="line">19: Client using the ascii protocol</span><br><span class="line">&lt;19 set 0 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 1 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 2 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 3 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 4 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 5 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 6 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">......</span><br><span class="line">&lt;19 set 280 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 281 0 0 10240</span><br><span class="line">&gt;19 STORED</span><br><span class="line">&lt;19 set 282 0 0 10240</span><br><span class="line">&gt;19 SERVER_ERROR out of memory storing object</span><br><span class="line">&lt;19 connection closed.</span><br></pre></td></tr></table></figure></p>
+<p><code>client</code>: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pymemcache.client <span class="keyword">import</span> base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    client = base.Client((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">11211</span>), default_noreply=<span class="literal">False</span>)</span><br><span class="line">    sz = <span class="number">0</span></span><br><span class="line">    pos = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        key = str(pos)</span><br><span class="line">        value = <span class="string">&#x27;x&#x27;</span> * <span class="number">10240</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            res = client.set(key, value)</span><br><span class="line">            <span class="keyword">if</span> res:</span><br><span class="line">                sz += len(key) + len(value)</span><br><span class="line">                pos += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">&#x27;exception: %s, sz: %s&#x27;</span> % (e, sz))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python3 main.py</span><br><span class="line">exception: b&#39;out of memory storing object&#39;, sz: 2888416</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;bytes&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;github.com/bradfitz/gomemcache/memcache&quot;</span></span><br><span class="line">    logger <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/x-cray/logrus-prefixed-formatter&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    logger.SetFormatter(&amp;prefixed.TextFormatter&#123;</span><br><span class="line">        TimestampFormat: <span class="string">&quot;2006-01-02 15:04:05&quot;</span>,</span><br><span class="line">        FullTimestamp:   <span class="literal">true</span>,</span><br><span class="line">        ForceFormatting: <span class="literal">true</span>,</span><br><span class="line">        DisableColors:   <span class="literal">true</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    logger.SetOutput(os.Stdout)</span><br><span class="line">    logger.SetLevel(logger.DebugLevel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    mc := memcache.New(<span class="string">&quot;localhost:11211&quot;</span>)</span><br><span class="line"></span><br><span class="line">    buf := bytes.NewBuffer(<span class="literal">nil</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10240</span>; i++ &#123;</span><br><span class="line">        buf.WriteRune(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := mc.Set(&amp;memcache.Item&#123;</span><br><span class="line">        Key:   <span class="string">&quot;foo&quot;</span>,</span><br><span class="line">        Value: buf.Bytes(),</span><br><span class="line">    &#125;); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;set error: %v&quot;</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> it, err := mc.Get(<span class="string">&quot;32&quot;</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;get error: %v, is miss: %v&quot;</span>, err, err == memcache.ErrCacheMiss)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        logger.Infof(<span class="string">&quot;key: %v, value: %v&quot;</span>, it.Key, <span class="keyword">string</span>(it.Value))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> it, err := mc.Get(<span class="string">&quot;non&quot;</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;get error: %v, is miss: %v&quot;</span>, err, err == memcache.ErrCacheMiss)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        logger.Infof(<span class="string">&quot;key: %v, value: %v&quot;</span>, it.Key, <span class="keyword">string</span>(it.Value))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2020-05-19 18:21:20] ERROR set error: memcache: unexpected response line from &quot;set&quot;: &quot;SERVER_ERROR out of memory storing object\r\n&quot;</span><br><span class="line">[2020-05-19 18:21:20]  INFO key: 32, value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line">[2020-05-19 18:21:20] ERROR get error: memcache: cache miss, is miss: true</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Control-in-Detail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/TCP-Control-in-Detail/" class="post-title-link" itemprop="url">TCP Control in Detail</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-12 18:30:00 18:30:00" itemprop="dateCreated datePublished" datetime="2020-05-12T18:30:00+08:00">2020-05-12 18:30:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="retransmission">Retransmission</h1>
+<p>TCP sets a timer when it sends data, and if the data is not acknowledged when the timer expires, a timeout or timer-based retransmission of data occurs. The timeout occurs after an interval called the retransmission timeout (RTO). It has another way of initiating a retransmission called fast retransmission or fast retransmit, which usually happens without any delay. Fast retransmit is based on inferring losses by noticing when TCP’s cumulative acknowledgment fails to advance in the ACKs received over time, or when ACKs carrying selective acknowledgment information (SACKs) indicate that out-of-order segments are present at the receiver. Generally speaking, when the sender believes that the receiver might be missing some data, a choice needs to be made between sending new (unsent) data and retransmitting.</p>
+<h2 id="fast-retransmit">Fast retransmit</h2>
+<p><img src="/images/posts/TCP-Control-in-Detail/0.png" /></p>
+<h1 id="flow-control-and-window-management">Flow Control and Window Management</h1>
+<p><img src="/images/posts/TCP-Control-in-Detail/1.png" /> <img src="/images/posts/TCP-Control-in-Detail/2.png" /></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Connection-in-Detail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/TCP-Connection-in-Detail/" class="post-title-link" itemprop="url">TCP Connection in Detail</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-12 17:48:00 17:48:00" itemprop="dateCreated datePublished" datetime="2020-05-12T17:48:00+08:00">2020-05-12 17:48:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="reset">Reset</h1>
+<p>In general, a reset is sent by TCP whenever a segment arrives that does not appear to be correct for the referenced connection. The reset segment elicits no response from the other end—it is not acknowledged at all. The receiver of the reset aborts the connection and advises the application that the connection was reset. This often results in the error indication “Connection reset by peer” or a similar message.</p>
+<h1 id="time-wait">TIME-WAIT</h1>
+<p>http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html</p>
+<p>https://stackoverflow.com/a/60075710/13133551</p>
+<blockquote>
+<p>The two reasons for the existence of the TIME-WAIT state and the 2SML timer:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>If the last ACK segment is lost, the server TCP, which sets a timer for the last FIN (Finish) bit set, assumes that its FIN is lost and resends it. If the client goes to the CLOSED state and closes the connection before the 2MSL timer expires, it never receives this resent FIN segment, and consequently, the server never receives the final ACK. The server cannot close the connection. The 2MSL timer makes the client wait for a duration that is enough time for an ACK to be lost (one SML) and a FIN to arrive (another SML). If during the TIME-WAIT state, a new FIN arrives, the client sends a new ACK and restarts the 2SML timer.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>A duplicate segment from one connection might appear in the next one. Assume a client and a server have closed a connection. After a short period, they open a connection with the same socket addresses (same source and destination IP addresses and the same source and destination port numbers). A duplicated segment from the previous connection may arrive in this new connection and be interpreted as belonging to the new connection if there is not enough time between the two connections. To prevent this problem, TCP requires that an incarnation cannot occur unless a 2MSL amount of time has elapsed.</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/12/TCP-Headers-in-Detail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/TCP-Headers-in-Detail/" class="post-title-link" itemprop="url">TCP Headers in Detail</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-12 17:19:00 17:19:00" itemprop="dateCreated datePublished" datetime="2020-05-12T17:19:00+08:00">2020-05-12 17:19:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="timestamp-option">Timestamp option</h1>
+<p>http://www.networksorcery.com/enp/protocol/tcp/option008.htm</p>
+<h2 id="timestamp-value-tsval.-32-bits.">Timestamp Value (TSval). 32 bits.</h2>
+<p>This field contains the current value of the timestamp clock of the TCP sending the option.</p>
+<h2 id="timestamp-echo-reply-tsecr.-32-bits.">Timestamp Echo Reply (TSecr). 32 bits.</h2>
+<p>This field is only valid if the ACK bit is set in the TCP header. If it is valid, it echos a timestamp value that was sent by the remote TCP in the TSval field of a Timestamps option. When TSecr is not valid, its value must be zero. The TSecr value will generally be from the most recent Timestamp option that was received; however, there are exceptions that are explained below. A TCP may send the Timestamp option in an initial SYN segment (i.e., segment containing a SYN bit and no ACK bit), and may send a TSopt in other segments only if it received a TSopt in the initial SYN segment for the connection.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/05/09/TCP-learn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -550,417 +919,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/27/UDP-learn-by-Python3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/27/UDP-learn-by-Python3/" class="post-title-link" itemprop="url">UDP learn by Python3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-27 18:30:00 18:30:00" itemprop="dateCreated datePublished" datetime="2020-04-27T18:30:00+08:00">2020-04-27 18:30:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="find-max-packet-size">Find max packet size</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_max_udp_packet_size</span>():</span></span><br><span class="line">    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line">    max_sz = <span class="number">0</span></span><br><span class="line">    l, r = <span class="number">0</span>, <span class="number">65535</span> - <span class="number">8</span> - <span class="number">20</span></span><br><span class="line">    <span class="keyword">while</span> l &lt;= r:</span><br><span class="line">        mid = int((l + r) / <span class="number">2</span>)</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            sock.sendto(<span class="string">b&#x27;A&#x27;</span> * mid, (<span class="string">&#x27;localhost&#x27;</span>, <span class="number">9</span>))</span><br><span class="line">        <span class="keyword">except</span> socket.error:</span><br><span class="line">            ok = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ok:</span><br><span class="line">            max_sz = mid</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = mid - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max_sz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    max_sz = find_max_udp_packet_size()</span><br><span class="line">    print(<span class="string">&#x27;max_sz = %s&#x27;</span> % max_sz)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>I used the code above to find the max size of a UDP packet size by default configuration. The result on my computer is: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ uname -v</span><br><span class="line">Darwin Kernel Version 19.2.0: Sat Nov  9 03:47:04 PST 2019; root:xnu-6153.61.1~20&#x2F;RELEASE_X86_64</span><br><span class="line">$ python3 --version</span><br><span class="line">Python 3.6.4</span><br><span class="line">$ python3 udp_packet_size.py</span><br><span class="line">max_sz &#x3D; 9216</span><br></pre></td></tr></table></figure></p>
-<h2 id="more-test">More test</h2>
-<p>Use the code below to test. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># coding: utf-8</span><br><span class="line"></span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line">from IPython import embed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    sock &#x3D; socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line">    embed()</span><br><span class="line">    sock.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [1]: sock.bind((&#39;localhost&#39;, 10001))</span><br><span class="line"></span><br><span class="line">In [2]: receiver &#x3D; (&#39;localhost&#39;, 10002)</span><br><span class="line"></span><br><span class="line">In [3]: sock.sendto(b&#39;01234567&#39;, receiver)</span><br><span class="line">Out[3]: 8</span><br><span class="line"></span><br><span class="line">In [4]: sock.sendto(b&#39;01234567&#39;, receiver)</span><br><span class="line">Out[4]: 8</span><br><span class="line"></span><br><span class="line">In [5]: sock.sendto(b&#39;01234567&#39;, receiver)</span><br><span class="line">Out[5]: 8</span><br><span class="line"></span><br><span class="line">In [6]: sock.sendto(b&#39;01234567&#39;, receiver)</span><br><span class="line">Out[6]: 8</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [1]: sock.bind((&#39;localhost&#39;, 10002))</span><br><span class="line"></span><br><span class="line">In [2]: receiver &#x3D; (&#39;localhost&#39;, 10001)</span><br><span class="line"></span><br><span class="line">In [3]: print(sock.recvfrom(1024))</span><br><span class="line">(b&#39;01234567&#39;, (&#39;127.0.0.1&#39;, 10001))</span><br><span class="line"></span><br><span class="line">In [4]: print(sock.recvfrom(4))</span><br><span class="line">(b&#39;0123&#39;, (&#39;127.0.0.1&#39;, 10001))</span><br><span class="line"></span><br><span class="line">In [5]: print(sock.recvfrom(4))</span><br><span class="line">(b&#39;0123&#39;, (&#39;127.0.0.1&#39;, 10001))</span><br><span class="line"></span><br><span class="line">In [6]: print(sock.recvfrom(4))</span><br><span class="line">(b&#39;0123&#39;, (&#39;127.0.0.1&#39;, 10001))</span><br><span class="line"></span><br><span class="line">In [7]: print(sock.recvfrom(4))</span><br></pre></td></tr></table></figure>
-<p>We can see that if the <code>bufsize</code> is smaller the length of the packet received, will only read <code>bufsize</code> bytes of the received data, and the rest of that packet will not be returned in subsequent reads.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/27/UDP-headers-and-checksum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/27/UDP-headers-and-checksum/" class="post-title-link" itemprop="url">UDP headers and checksum</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-27 14:03:00 14:03:00" itemprop="dateCreated datePublished" datetime="2020-04-27T14:03:00+08:00">2020-04-27 14:03:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="udp-headers">UDP headers</h2>
-<p><img src="/images/posts/UDP-headers-and-checksum/0.png" /></p>
-<h2 id="headers-for-computing-checksum">Headers for computing checksum</h2>
-<p><img src="/images/posts/UDP-headers-and-checksum/1.png" /></p>
-<p>The checksum computation is similar to the Internet checksum computation.</p>
-<p><img src="/images/posts/UDP-headers-and-checksum/2.png" /></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">checksum</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">short</span>&gt; &amp;v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++) &#123;</span><br><span class="line">        sum += v[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (sum &gt; <span class="number">0xFFFF</span>) &#123;</span><br><span class="line">        sum = (sum &amp; <span class="number">0xFFFF</span>) + (sum &gt;&gt; <span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ~sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">short</span>&gt; vec&#123;</span><br><span class="line">            <span class="comment">// UDP pseudo-header</span></span><br><span class="line">            <span class="number">0x0a01</span>, <span class="number">0xbf44</span>, <span class="comment">// source IP address</span></span><br><span class="line">            <span class="number">0x0a02</span>, <span class="number">0x0002</span>, <span class="comment">// destination IP address</span></span><br><span class="line">            <span class="number">0x0011</span> <span class="comment">/* 1 byte zero and 1 byte protocol number */</span>, <span class="number">0x0023</span>, <span class="comment">// UDP length</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// UDP header</span></span><br><span class="line">            <span class="number">0xc183</span>, <span class="number">0x0035</span>, <span class="comment">// source port number and destination port number</span></span><br><span class="line">            <span class="number">0x0000</span>, <span class="number">0x0023</span>, <span class="comment">// checksum and UDP length</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// data</span></span><br><span class="line">            <span class="number">0x06b0</span>, <span class="number">0x0100</span>,</span><br><span class="line">            <span class="number">0x0001</span>, <span class="number">0x0000</span>,</span><br><span class="line">            <span class="number">0x0000</span>, <span class="number">0x0000</span>,</span><br><span class="line">            <span class="number">0x0562</span>, <span class="number">0x6169</span>,</span><br><span class="line">            <span class="number">0x6475</span>, <span class="number">0x0363</span>,</span><br><span class="line">            <span class="number">0x6f6d</span>, <span class="number">0x0000</span>,</span><br><span class="line">            <span class="number">0x0100</span>, <span class="number">0x0100</span>, <span class="comment">// the length of this UDP packet is odd and the last short is 0x01, so we should pad 1 byte zero.</span></span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> sum = checksum(vec);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;checksum = 0x%X\n&quot;</span>, sum);</span><br><span class="line">    assert(sum == <span class="number">0x22E4</span>);</span><br><span class="line"></span><br><span class="line">    vec[<span class="number">8</span>] = sum;</span><br><span class="line"></span><br><span class="line">    sum = checksum(vec);</span><br><span class="line">    assert(sum == <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;0x%X\n&quot;</span>, sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/26/routetrace/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/routetrace/" class="post-title-link" itemprop="url">routetrace</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-26 20:03:00 20:03:00" itemprop="dateCreated datePublished" datetime="2020-04-26T20:03:00+08:00">2020-04-26 20:03:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="command">Command</h2>
-<p>https://linux.die.net/man/8/traceroute</p>
-<blockquote>
-<p>This program attempts to trace the route an IP packet would follow to some internet host by launching probe packets with a small ttl (time to live) then listening for an ICMP "time exceeded" reply from a gateway. We start our probes with a ttl of one and increase by one until we get an ICMP "port unreachable" (or TCP reset), which means we got to the "host", or hit a max (which defaults to 30 hops). Three probes (by default) are sent at each ttl setting and a line is printed showing the ttl, address of the gateway and round trip time of each probe. The address can be followed by additional information when requested. If the probe answers come from different gateways, the address of each responding system will be printed. If there is no response within a 5.0 seconds (default), an "*" (asterisk) is printed for that probe.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ traceroute iqiyi.com</span><br><span class="line">traceroute to iqiyi.com (111.206.13.64), 30 hops max, 60 byte packets</span><br><span class="line"> 1  * * *</span><br><span class="line"> 2  11.220.36.9 (11.220.36.9)  6.906 ms 11.220.37.73 (11.220.37.73)  5.219 ms 11.220.36.9 (11.220.36.9)  7.193 ms</span><br><span class="line"> 3  * * *</span><br><span class="line"> 4  10.54.136.253 (10.54.136.253)  0.419 ms 11.217.38.218 (11.217.38.218)  0.366 ms 10.54.137.5 (10.54.137.5)  7.548 ms</span><br><span class="line"> 5  119.38.215.78 (119.38.215.78)  1.215 ms 42.120.253.1 (42.120.253.1)  1.148 ms 117.49.35.198 (117.49.35.198)  1.040 ms</span><br><span class="line"> 6  116.251.113.145 (116.251.113.145)  1.798 ms 42.120.239.249 (42.120.239.249)  2.112 ms 116.251.113.149 (116.251.113.149)  2.287 ms</span><br><span class="line"> 7  157.255.237.149 (157.255.237.149)  5.927 ms  5.809 ms  5.758 ms</span><br><span class="line"> 8  120.80.99.17 (120.80.99.17)  5.375 ms 120.80.98.177 (120.80.98.177)  4.409 ms 120.80.98.181 (120.80.98.181)  6.039 ms</span><br><span class="line"> 9  221.4.0.181 (221.4.0.181)  9.088 ms  8.350 ms  8.086 ms</span><br><span class="line">10  219.158.7.21 (219.158.7.21)  35.774 ms  35.622 ms 219.158.7.17 (219.158.7.17)  39.304 ms</span><br><span class="line">11  124.65.194.34 (124.65.194.34)  41.728 ms 202.96.12.26 (202.96.12.26)  40.799 ms 125.33.186.50 (125.33.186.50)  38.370 ms</span><br><span class="line">12  202.106.34.98 (202.106.34.98)  72.417 ms  67.925 ms  66.970 ms</span><br><span class="line">13  bt-211-070.bta.net.cn (202.106.211.70)  39.312 ms * *</span><br><span class="line">14  111.206.13.64 (111.206.13.64)  39.598 ms  36.527 ms  39.293 ms</span><br></pre></td></tr></table></figure>
-<h2 id="simulate-by-ping">Simulate by ping</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">$ ping -c2 -W 1.5 -t 1 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.64) 56(84) bytes of data.</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, 100% packet loss, time 1007ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 2 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.63) 56(84) bytes of data.</span><br><span class="line">From 11.220.36.73 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 11.220.36.73 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 3 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.61) 56(84) bytes of data.</span><br><span class="line">From 11.220.37.130 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 11.220.37.130 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 4 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.64) 56(84) bytes of data.</span><br><span class="line">From 10.54.140.5 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 10.54.140.5 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 5 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.63) 56(84) bytes of data.</span><br><span class="line">From 117.49.35.62 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 117.49.35.62 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 6 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.65) 56(84) bytes of data.</span><br><span class="line">From 42.120.242.229 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 42.120.242.229 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1000ms</span><br><span class="line"></span><br><span class="line">--------</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 12 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.66) 56(84) bytes of data.</span><br><span class="line">From 123.126.0.46 icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From 123.126.0.46 icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 13 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.62) 56(84) bytes of data.</span><br><span class="line">From bt-211-042.bta.net.cn (202.106.211.42) icmp_seq&#x3D;1 Time to live exceeded</span><br><span class="line">From bt-211-042.bta.net.cn (202.106.211.42) icmp_seq&#x3D;2 Time to live exceeded</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms</span><br><span class="line"></span><br><span class="line">$ ping -c2 -W 1.5 -t 14 iqiyi.com</span><br><span class="line">PING iqiyi.com (111.206.13.61) 56(84) bytes of data.</span><br><span class="line">64 bytes from 111.206.13.61: icmp_seq&#x3D;1 ttl&#x3D;52 time&#x3D;36.7 ms</span><br><span class="line">64 bytes from 111.206.13.61: icmp_seq&#x3D;2 ttl&#x3D;52 time&#x3D;36.7 ms</span><br><span class="line"></span><br><span class="line">--- iqiyi.com ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1000ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 36.726&#x2F;36.737&#x2F;36.748&#x2F;0.011 ms</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/24/IPv4-headers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/24/IPv4-headers/" class="post-title-link" itemprop="url">IPv4 headers</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-24 17:13:00 17:13:00" itemprop="dateCreated datePublished" datetime="2020-04-24T17:13:00+08:00">2020-04-24 17:13:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>From: TCP/IP Illustrated, Volume 1: The Protocols.</p>
-<p><img src="/images/posts/IPv4-headers/0.png" /></p>
-<h3 id="ihl">IHL</h3>
-<p>The Internet Header Length (IHL) field is the number of 32-bit words in the IPv4 header, including any options. Because this is also a 4-bit field, the IPv4 header is limited to a maximum of fifteen 32-bit words or 60 bytes. ### Total Length The Total Length field is the total length of the IPv4 datagram in bytes. ### Protocol The Protocol field in the IPv4 header contains a number indicating the type of data found in the payload portion of the datagram. The most common values are 17 (for UDP) and 6 (for TCP).</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/24/Commands-for-IP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/24/Commands-for-IP/" class="post-title-link" itemprop="url">Commands for IP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-24 16:47:00 16:47:00" itemprop="dateCreated datePublished" datetime="2020-04-24T16:47:00+08:00">2020-04-24 16:47:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="ifconfig">ifconfig</h2>
-<p>https://linux.die.net/man/8/ifconfig</p>
-<blockquote>
-<p>Ifconfig is used to configure the kernel-resident network interfaces. It is used at boot time to set up interfaces as necessary. After that, it is usually only needed when debugging or when system tuning is needed.</p>
-</blockquote>
-<p>If no arguments are given, ifconfig displays the status of the currently active interfaces. If a single interface argument is given, it displays the status of the given interface only; if a single -a argument is given, it displays the status of all interfaces, even those that are down. Otherwise, it configures an interface.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line">eth0      Link encap:Ethernet  HWaddr 00:16:3e:10:27:9e</span><br><span class="line">          inet addr:172.16.62.130  Bcast:172.16.63.255  Mask:255.255.192.0</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:10188512 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:10123903 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:1554718007 (1.5 GB)  TX bytes:15002653955 (15.0 GB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback</span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:5561316 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:5561316 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1</span><br><span class="line">          RX bytes:720550645 (720.5 MB)  TX bytes:720550645 (720.5 MB)</span><br><span class="line"></span><br><span class="line">$ ifconfig &lt;interface&gt; up</span><br><span class="line">$ ifconfig &lt;interface&gt; down</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="route">route</h2>
-<p>https://linux.die.net/man/8/route</p>
-<blockquote>
-<p>Route manipulates the kernel's IP routing tables. Its primary use is to set up static routes to specific hosts or networks via an interface after it has been configured with the ifconfig(8) program.</p>
-</blockquote>
-<p>When the add or del options are used, route modifies the routing tables. Without these options, route displays the current contents of the routing tables.</p>
-<hr />
-<p>https://superuser.com/a/580674</p>
-<blockquote>
-<p>The Gateway column identifies the defined gateway for the specified network. An asterisk (*) appears in this column if no forwarding gateway is needed for the network.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ route</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U     0      0        0 eth0</span><br><span class="line"></span><br><span class="line">$ host baidu.com</span><br><span class="line">baidu.com has address 220.181.38.148</span><br><span class="line">baidu.com has address 39.156.69.79</span><br><span class="line">baidu.com mail is handled by 15 mx.n.shifen.com.</span><br><span class="line">baidu.com mail is handled by 20 mx50.baidu.com.</span><br><span class="line">baidu.com mail is handled by 10 mx.maillb.baidu.com.</span><br><span class="line">baidu.com mail is handled by 20 jpmx.baidu.com.</span><br><span class="line">baidu.com mail is handled by 20 mx1.baidu.com.</span><br><span class="line"></span><br><span class="line">$ ip route get 220.181.38.148</span><br><span class="line">220.181.38.148 via 172.16.63.253 dev eth0  src 172.16.62.130</span><br><span class="line">    cache</span><br><span class="line"></span><br><span class="line">$ ping -c1 220.181.38.148</span><br><span class="line">PING 220.181.38.148 (220.181.38.148) 56(84) bytes of data.</span><br><span class="line">64 bytes from 220.181.38.148: icmp_seq&#x3D;1 ttl&#x3D;49 time&#x3D;36.6 ms</span><br><span class="line"></span><br><span class="line">--- 220.181.38.148 ping statistics ---</span><br><span class="line">1 packets transmitted, 1 received, 0% packet loss, time 0ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 36.620&#x2F;36.620&#x2F;36.620&#x2F;0.000 ms</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ sudo route add 220.181.38.148 eth0</span><br><span class="line"></span><br><span class="line">$ route</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U     0      0        0 eth0</span><br><span class="line">220.181.38.148  *               255.255.255.255 UH    0      0        0 eth0</span><br><span class="line"></span><br><span class="line">$ ip route get 220.181.38.148</span><br><span class="line">220.181.38.148 dev eth0  src 172.16.62.130</span><br><span class="line">    cache</span><br><span class="line"></span><br><span class="line">$ ping -c1 220.181.38.148</span><br><span class="line">PING 220.181.38.148 (220.181.38.148) 56(84) bytes of data.</span><br><span class="line">From 172.16.62.130 icmp_seq&#x3D;1 Destination Host Unreachable</span><br><span class="line"></span><br><span class="line">--- 220.181.38.148 ping statistics ---</span><br><span class="line">1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</span><br><span class="line"></span><br><span class="line">$ sudo route del 220.181.38.148</span><br><span class="line"></span><br><span class="line">$ route</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U     0      0        0 eth0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ sudo route add 220.181.38.148 gw 172.16.63.253</span><br><span class="line"></span><br><span class="line">$ route</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U     0      0        0 eth0</span><br><span class="line">220.181.38.148  172.16.63.253   255.255.255.255 UGH   0      0        0 eth0</span><br><span class="line"></span><br><span class="line">$ ip route get 220.181.38.148</span><br><span class="line">220.181.38.148 via 172.16.63.253 dev eth0  src 172.16.62.130</span><br><span class="line">    cache</span><br><span class="line"></span><br><span class="line">$ ping -c1 220.181.38.148</span><br><span class="line">PING 220.181.38.148 (220.181.38.148) 56(84) bytes of data.</span><br><span class="line">64 bytes from 220.181.38.148: icmp_seq&#x3D;1 ttl&#x3D;49 time&#x3D;36.5 ms</span><br><span class="line"></span><br><span class="line">--- 220.181.38.148 ping statistics ---</span><br><span class="line">1 packets transmitted, 1 received, 0% packet loss, time 0ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 36.538&#x2F;36.538&#x2F;36.538&#x2F;0.000 ms</span><br><span class="line"></span><br><span class="line">$ sudo route del 220.181.38.148</span><br><span class="line"></span><br><span class="line">$ route</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U     0      0        0 eth0</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="iptables">iptables</h2>
-<p>https://linux.die.net/man/8/iptables</p>
-<blockquote>
-<p>iptables - administration tool for IPv4 packet filtering and NAT</p>
-</blockquote>
-<h3 id="default">default</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ iptables -L -v --line-numbers</span><br><span class="line">Chain INPUT (policy ACCEPT 290 packets, 18937 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT 202 packets, 41678 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">torapture@rapture$ ping -c4 D.D.D.D</span><br><span class="line">PING D.D.D.D (D.D.D.D) 56(84) bytes of data.</span><br><span class="line">64 bytes from D.D.D.D: icmp_seq&#x3D;1 ttl&#x3D;45 time&#x3D;192 ms</span><br><span class="line">64 bytes from D.D.D.D: icmp_seq&#x3D;2 ttl&#x3D;45 time&#x3D;180 ms</span><br><span class="line">64 bytes from D.D.D.D: icmp_seq&#x3D;3 ttl&#x3D;45 time&#x3D;194 ms</span><br><span class="line">64 bytes from D.D.D.D: icmp_seq&#x3D;4 ttl&#x3D;45 time&#x3D;180 ms</span><br><span class="line"></span><br><span class="line">--- D.D.D.D ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, time 2998ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 180.029&#x2F;186.853&#x2F;194.475&#x2F;6.724 ms</span><br></pre></td></tr></table></figure>
-<h3 id="drop">drop</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ iptables -A INPUT -s S.S.S.S -j DROP</span><br><span class="line"></span><br><span class="line">torapture@rapture$ ping -c4 D.D.D.D</span><br><span class="line">PING D.D.D.D (D.D.D.D) 56(84) bytes of data.</span><br><span class="line"></span><br><span class="line">--- D.D.D.D ping statistics ---</span><br><span class="line">4 packets transmitted, 0 received, 100% packet loss, time 3024ms</span><br><span class="line"></span><br><span class="line">root@nenuoj$ iptables -L -v --line-numbers</span><br><span class="line">Chain INPUT (policy ACCEPT 54 packets, 3339 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line">1        4   336 DROP       all  --  any    any     S.S.S.S       anywhere</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT 44 packets, 13276 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br></pre></td></tr></table></figure>
-<h3 id="reject-tcp80">reject tcp:80</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ iptables -A INPUT -s S.S.S.S -p tcp --destination-port 80 -j REJECT</span><br><span class="line"></span><br><span class="line">torapture@rapture$ curl D.D.D.D</span><br><span class="line">curl: (7) Failed to connect to D.D.D.D port 80: Connection refused</span><br><span class="line"></span><br><span class="line">root@nenuoj$ iptables -L -v --line-numbers</span><br><span class="line">Chain INPUT (policy ACCEPT 91 packets, 5449 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line">1        1    60 REJECT     tcp  --  any    any     S.S.S.S       anywhere             tcp dpt:http reject-with icmp-port-unreachable</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT 70 packets, 14548 bytes)</span><br><span class="line">num   pkts bytes target     prot opt in     out     source               destination</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="ip">ip</h2>
-<p>https://linux.die.net/man/8/ip</p>
-<blockquote>
-<p>ip - show / manipulate routing, devices, policy routing and tunnels</p>
-</blockquote>
-<h3 id="address">address</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1</span><br><span class="line">    link&#x2F;loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1&#x2F;8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="line">    link&#x2F;ether 00:16:3e:10:27:9e brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.16.62.130&#x2F;18 brd 172.16.63.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
-<h3 id="link">link</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ ip link show eth0</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000</span><br><span class="line">    link&#x2F;ether 00:11:22:33:44:55 brd ff:ff:ff:ff:ff:ff</span><br></pre></td></tr></table></figure>
-<h3 id="route-1">route</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ ip route</span><br><span class="line">default via 172.16.63.253 dev eth0</span><br><span class="line">172.16.0.0&#x2F;18 dev eth0  proto kernel  scope link  src 172.16.62.130</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="netstat">netstat</h2>
-<p>https://linux.die.net/man/8/netstat</p>
-<blockquote>
-<p>netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships</p>
-</blockquote>
-<h3 id="list-all-tcp-listening-ports">List all tcp listening ports</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ netstat -tl</span><br><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State</span><br><span class="line">tcp        0      0 localhost:32000         *:*                     LISTEN</span><br><span class="line">tcp        0      0 *:27015                 *:*                     LISTEN</span><br><span class="line">tcp        0      0 localhost:mysql         *:*                     LISTEN</span><br><span class="line">tcp        0      0 localhost:11211         *:*                     LISTEN</span><br><span class="line">tcp        0      0 localhost:6379          *:*                     LISTEN</span><br><span class="line">tcp        0      0 *:http                  *:*                     LISTEN</span><br><span class="line">tcp        0      0 *:ssh                   *:*                     LISTEN</span><br><span class="line">tcp        0      0 *:https                 *:*                     LISTEN</span><br><span class="line">tcp        0      0 localhost:1087          *:*                     LISTEN</span><br><span class="line">tcp6       0      0 [::]:http               [::]:*                  LISTEN</span><br></pre></td></tr></table></figure>
-<h3 id="list-all-tcp-connections-with-pid-and-numericals">List all tcp connections with pid and numericals</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ netstat -atnp</span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID&#x2F;Program name</span><br><span class="line">tcp        0      0 127.0.0.1:32000         0.0.0.0:*               LISTEN      972&#x2F;java</span><br><span class="line">tcp        0      0 0.0.0.0:27015           0.0.0.0:*               LISTEN      1323&#x2F;Judger</span><br><span class="line">tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      1203&#x2F;mysqld</span><br><span class="line">tcp        0      0 127.0.0.1:11211         0.0.0.0:*               LISTEN      1278&#x2F;memcached</span><br><span class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      808&#x2F;redis-server 12</span><br><span class="line">tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1270&#x2F;nginx -g daemo</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1044&#x2F;sshd</span><br><span class="line">tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      1270&#x2F;nginx -g daemo</span><br><span class="line">tcp        0      0 127.0.0.1:1087          0.0.0.0:*               LISTEN      430&#x2F;privoxy</span><br><span class="line">tcp        0      0 172.16.62.130:38632     100.100.30.25:80        ESTABLISHED 1403&#x2F;AliYunDun</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52680   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52669   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52686   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 127.0.0.1:32000         127.0.0.1:31000         ESTABLISHED 933&#x2F;wrapper</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52681   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52679   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 127.0.0.1:31000         127.0.0.1:32000         ESTABLISHED 972&#x2F;java</span><br><span class="line">tcp        0    560 172.16.62.130:22        120.52.147.54:49840     ESTABLISHED 4232&#x2F;1</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52682   FIN_WAIT2   -</span><br><span class="line">tcp        0      0 172.16.62.130:80        182.122.161.236:52668   FIN_WAIT2   -</span><br><span class="line">tcp6       0      0 :::80                   :::*                    LISTEN      1270&#x2F;nginx -g daemo</span><br></pre></td></tr></table></figure>
-<h3 id="display-routing">Display routing</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ netstat -r</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface</span><br><span class="line">default         172.16.63.253   0.0.0.0         UG        0 0          0 eth0</span><br><span class="line">172.16.0.0      *               255.255.192.0   U         0 0          0 eth0</span><br></pre></td></tr></table></figure>
-<h3 id="show-interface-infomation">Show interface infomation</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@nenuoj$ netstat -i</span><br><span class="line">Kernel Interface table</span><br><span class="line">Iface   MTU Met   RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg</span><br><span class="line">eth0       1500 0     40465      0      0 0         33318      0      0      0 BMRU</span><br><span class="line">lo        65536 0     10406      0      0 0         10406      0      0      0 LRU</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1028,7 +990,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
