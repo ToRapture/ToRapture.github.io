@@ -191,6 +191,20 @@
               </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/08/29/51Nod-1127-%E6%9C%80%E7%9F%AD%E7%9A%84%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6%E4%B8%B2-%E6%BB%91%E7%AA%97%E7%AE%97%E6%B3%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/29/51Nod-1127-最短的包含字符串-滑窗算法/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -256,6 +270,13 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -495,6 +516,37 @@
     
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://torapture.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://torapture.github.io/2017/08/29/51Nod-1127-%E6%9C%80%E7%9F%AD%E7%9A%84%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6%E4%B8%B2-%E6%BB%91%E7%AA%97%E7%AE%97%E6%B3%95/";
+    this.page.identifier = "2017/08/29/51Nod-1127-最短的包含字符串-滑窗算法/";
+    this.page.title = "51Nod 1127 最短的包含字符串 滑窗算法";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://torapture.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>
