@@ -154,6 +154,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/06/UNIX%E7%BC%96%E7%A8%8B-GetAddrInfo%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/06/UNIX%E7%BC%96%E7%A8%8B-GetAddrInfo%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">UNIX编程 GetAddrInfo笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-06 15:58:00 15:58:00" itemprop="dateCreated datePublished" datetime="2019-12-06T15:58:00+08:00">2019-12-06 15:58:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/12/06/UNIX%E7%BC%96%E7%A8%8B-GetAddrInfo%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/06/UNIX编程-GetAddrInfo笔记/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>实现参考：</p>
+<ul>
+<li>《UNIX环境高级编程》16.3.3 地址查询</li>
+<li>《UNIX系统编程手册 下》59.10.1</li>
+<li>man getaddrinfo</li>
+</ul>
+<p><code>addr</code>: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">getnameinfo_str</span><span class="params">(<span class="keyword">const</span> sockaddr *addr, <span class="keyword">socklen_t</span> addrlen, <span class="keyword">int</span> flags)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> host[NI_MAXHOST];</span><br><span class="line">    <span class="keyword">char</span> service[NI_MAXSERV];</span><br><span class="line">    <span class="keyword">int</span> ret = getnameinfo(addr, addrlen, host, <span class="keyword">sizeof</span>(host), service, <span class="keyword">sizeof</span>(service), flags);</span><br><span class="line">    <span class="keyword">if</span> (ret != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;getnameinfo failed, ret: %d, str: %s\n&quot;</span>, ret, gai_strerror(ret));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> host + <span class="built_in">string</span>(<span class="string">&quot;:&quot;</span>) + service;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;host, <span class="keyword">const</span> <span class="built_in">string</span> &amp;service, <span class="keyword">int</span> hints_flags, <span class="keyword">int</span> getaddrinfo_flags)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;host: %s, service: %s, hints_flags: %d, getaddrinfo_flags: %d\n&quot;</span>, host.c_str(), service.c_str(), hints_flags, getaddrinfo_flags);</span><br><span class="line">    addrinfo hints;</span><br><span class="line">    addrinfo *result;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;hints, <span class="number">0</span>, <span class="keyword">sizeof</span>(hints));</span><br><span class="line"></span><br><span class="line">    hints.ai_socktype = SOCK_STREAM;</span><br><span class="line">    hints.ai_family = AF_UNSPEC;</span><br><span class="line">    hints.ai_flags = hints_flags;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ret = getaddrinfo(host == <span class="string">&quot;-&quot;</span> ? <span class="literal">NULL</span> : host.c_str(), service == <span class="string">&quot;-&quot;</span> ? <span class="literal">NULL</span> : service.c_str(), &amp;hints, &amp;result);</span><br><span class="line">    <span class="keyword">if</span> (ret != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;getaddrinfo, host: %s, service: %s, ret: %d, str: %s\n&quot;</span>, host.c_str(), service.c_str(), ret, gai_strerror(ret));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (addrinfo *p = result; p != <span class="literal">NULL</span>; p = p-&gt;ai_next) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;addr: %s, flags: %d, family: %d, socktype: %d, procotol: %d\n&quot;</span>,</span><br><span class="line">               getnameinfo_str(p-&gt;ai_addr, p-&gt;ai_addrlen, getaddrinfo_flags).c_str(), p-&gt;ai_flags, p-&gt;ai_family, p-&gt;ai_socktype, p-&gt;ai_protocol);</span><br><span class="line">        <span class="keyword">if</span> (p == result &amp;&amp; (hints_flags &amp; AI_CANONNAME)) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;canonname: %s\n&quot;</span>, p-&gt;ai_canonname);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    freeaddrinfo(result);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;-----------&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> host, service;</span><br><span class="line">    <span class="keyword">int</span> hints_flags, getaddrinfo_flags;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; host &gt;&gt; service &gt;&gt; hints_flags &gt;&gt; getaddrinfo_flags) &#123;</span><br><span class="line">        work(host, service, hints_flags, getaddrinfo_flags);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    work(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;https&quot;</span>, AI_PASSIVE, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;https&quot;</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;https&quot;</span>, AI_PASSIVE | AI_CANONNAME, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    work(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="string">&quot;https&quot;</span>, AI_PASSIVE, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="string">&quot;https&quot;</span>, AI_PASSIVE | AI_CANONNAME, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="string">&quot;https&quot;</span>, AI_PASSIVE | AI_CANONNAME, NI_NUMERICHOST | NI_NUMERICSERV);</span><br><span class="line"></span><br><span class="line">    work(<span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, NI_NUMERICHOST | NI_NUMERICSERV);</span><br><span class="line"></span><br><span class="line">    work(<span class="string">&quot;baidu.com&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;baidu.com&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, NI_NUMERICHOST | NI_NUMERICSERV);</span><br><span class="line"></span><br><span class="line">    work(<span class="string">&quot;google.com&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, <span class="number">0</span>);</span><br><span class="line">    work(<span class="string">&quot;google.com&quot;</span>, <span class="string">&quot;http&quot;</span>, AI_CANONNAME, NI_NUMERICHOST | NI_NUMERICSERV);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;addr</span><br><span class="line">host: -, service: https, hints_flags: 1, getaddrinfo_flags: 0</span><br><span class="line">addr: :::https, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">addr: 0.0.0.0:https, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: -, service: https, hints_flags: 0, getaddrinfo_flags: 0</span><br><span class="line">addr: localhost:https, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">addr: localhost:https, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: -, service: https, hints_flags: 3, getaddrinfo_flags: 0</span><br><span class="line">addr: :::https, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">canonname: localhost</span><br><span class="line">addr: 0.0.0.0:https, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: 127.0.0.1, service: https, hints_flags: 1, getaddrinfo_flags: 0</span><br><span class="line">addr: localhost:https, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: 127.0.0.1, service: https, hints_flags: 3, getaddrinfo_flags: 0</span><br><span class="line">addr: localhost:https, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: (null)</span><br><span class="line">-----------</span><br><span class="line">host: 127.0.0.1, service: https, hints_flags: 3, getaddrinfo_flags: 10</span><br><span class="line">addr: 127.0.0.1:443, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: (null)</span><br><span class="line">-----------</span><br><span class="line">host: localhost, service: http, hints_flags: 2, getaddrinfo_flags: 0</span><br><span class="line">addr: localhost:http, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">canonname: localhost</span><br><span class="line">addr: localhost:http, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: localhost, service: http, hints_flags: 2, getaddrinfo_flags: 10</span><br><span class="line">addr: ::1:80, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">canonname: localhost</span><br><span class="line">addr: 127.0.0.1:80, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: baidu.com, service: http, hints_flags: 2, getaddrinfo_flags: 0</span><br><span class="line">addr: 220.181.38.148:http, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: baidu.com</span><br><span class="line">addr: 39.156.69.79:http, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: baidu.com, service: http, hints_flags: 2, getaddrinfo_flags: 10</span><br><span class="line">addr: 220.181.38.148:80, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: baidu.com</span><br><span class="line">addr: 39.156.69.79:80, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: google.com, service: http, hints_flags: 2, getaddrinfo_flags: 0</span><br><span class="line">addr: hkg07s22-in-f110.1e100.net:http, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: google.com</span><br><span class="line">addr: hkg07s22-in-x0e.1e100.net:http, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br><span class="line">host: google.com, service: http, hints_flags: 2, getaddrinfo_flags: 10</span><br><span class="line">addr: 216.58.199.110:80, flags: 0, family: 2, socktype: 1, procotol: 6</span><br><span class="line">canonname: google.com</span><br><span class="line">addr: 2404:6800:4005:803::200e:80, flags: 0, family: 30, socktype: 1, procotol: 6</span><br><span class="line">-----------</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/04/UNIX%E7%BC%96%E7%A8%8B-TCP%E5%9F%BA%E7%A1%80%E8%AF%BB%E5%86%99%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -965,99 +1051,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/10/31/%E5%AD%90%E4%B8%B2Hash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/31/%E5%AD%90%E4%B8%B2Hash/" class="post-title-link" itemprop="url">子串Hash</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-31 14:52:00 14:52:00" itemprop="dateCreated datePublished" datetime="2019-10-31T14:52:00+08:00">2019-10-31 14:52:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/31/%E5%AD%90%E4%B8%B2Hash/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/31/子串Hash/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="模板">模板</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000000</span> + <span class="number">16</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Hash</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> KEY = <span class="number">137</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> h[N], p[N];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> a[], <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;len = len;</span><br><span class="line">        p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">            p[i] = p[i - <span class="number">1</span>] * KEY;</span><br><span class="line">        h[len] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            h[i] = h[i + <span class="number">1</span>] * KEY + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h[l] - h[r + <span class="number">1</span>] * p[r - l + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">get_for_len</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h[l] - h[l + len] * p[len];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><code>get</code>方法中<span class="math inline">\(0 \le l \le r &lt; len(a)\)</span>，<code>get_for_len</code>方法中<span class="math inline">\(l \in [0, len(a))，len \in [1, len(a) - l]\)</span>。</p>
-<h2 id="原理">原理</h2>
-<p><span class="math inline">\(p_i = k^i\)</span><br />
-<span class="math inline">\(h_i = \sum\limits_{j \in [i,\ len(a))} a_j \cdot k^{j - i}\)</span><br />
-<span class="math inline">\(get(l, r) = h_l - h_{r+1} \cdot k^{r - l + 1}\)</span><br />
-<span class="math inline">\(= \sum\limits_{j \in [l, len(a))} a_j \cdot k^{j - l} - \sum\limits_{j \in [r+1, len(a))} a_j \cdot k^{j-r-1} \cdot k^{r-l+1}\)</span><br />
-<span class="math inline">\(= \sum\limits_{j \in [l, len(a))} a_j \cdot k^{j - l} - \sum\limits_{j \in [r+1, len(a))} a_j \cdot k^{j-l}\)</span><br />
-<span class="math inline">\(= \sum\limits_{j \in [l, r+1)} a_j \cdot k^{j - l} + \sum\limits_{j \in [r+1, len(a))} a_j \cdot k^{j - l} - \sum\limits_{j \in [r+1, len(a))} a_j \cdot k^{j-l}\)</span><br />
-<span class="math inline">\(= \sum\limits_{j \in [l, r+1)} a_j \cdot k^{j - l}\)</span><br />
-<span class="math inline">\(= \sum\limits_{j \in [l, r]} a_j \cdot k^{j - l}\)</span><br />
-在实现的时候用到了unsigned long long的自然溢出，相当于<span class="math inline">\(\mod 2^{64}\)</span>。</p>
-<h2 id="例题">例题</h2>
-<p><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1711">HDU 1711 Number Sequence</a> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000000</span> + <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Hash</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> KEY = <span class="number">137</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> h[N], p[N];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> a[], <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;len = len;</span><br><span class="line">        p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">            p[i] = p[i - <span class="number">1</span>] * KEY;</span><br><span class="line">        h[len] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            h[i] = h[i + <span class="number">1</span>] * KEY + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h[l] - h[r + <span class="number">1</span>] * p[r - l + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">get_for_len</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h[l] - h[l + len] * p[len];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125; hp, hs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_ans</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i + hs.len - <span class="number">1</span> &lt; hp.len; i++)</span><br><span class="line">        <span class="keyword">if</span> (hs.get_for_len(<span class="number">0</span>, hs.len) == hp.get_for_len(i, hs.len))</span><br><span class="line">            <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="keyword">int</span> n, m;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">        hp.init(a, n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">        hs.init(a, m);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, get_ans());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">13 5</span></span><br><span class="line"><span class="comment">1 2 1 2 3 1 2 3 1 3 2 1 2</span></span><br><span class="line"><span class="comment">1 2 3 1 3</span></span><br><span class="line"><span class="comment">13 5</span></span><br><span class="line"><span class="comment">1 2 1 2 3 1 2 3 1 3 2 1 2</span></span><br><span class="line"><span class="comment">1 2 3 2 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">-1</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1129,14 +1122,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
