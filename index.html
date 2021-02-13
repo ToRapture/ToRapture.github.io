@@ -154,6 +154,181 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2021/02/13/Usage-of-FFmpeg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/13/Usage-of-FFmpeg/" class="post-title-link" itemprop="url">Usage of FFmpeg</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-13 20:35:35 20:35:35" itemprop="dateCreated datePublished" datetime="2021-02-13T20:35:35+08:00">2021-02-13 20:35:35</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-13 21:23:28 21:23:28" itemprop="dateModified" datetime="2021-02-13T21:23:28+08:00">2021-02-13 21:23:28</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/02/13/Usage-of-FFmpeg/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/13/Usage-of-FFmpeg/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="转换gif">转换GIF</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss &#123;start_time&#125; -to &#123;end_time&#125; -i &#123;input_file&#125; -r &#123;frame_rate&#125; -vf scale&#x3D;-2:&#123;height&#125; &#123;output_name&#125;.gif</span><br></pre></td></tr></table></figure>
+<p>For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss 01:30:02 -to 01:30:12 -i &#39;227 ELEVEN.mp4&#39; -r 15 -vf scale&#x3D;-2:240 cut.gif</span><br></pre></td></tr></table></figure>
+<h1 id="截取视频">截取视频</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss &#123;start_time&#125; -to &#123;end_time&#125; -i &#123;input_file&#125; -preset &#123;preset&#125; -c:v &#123;encoding&#125; &#123;output_file&#125;</span><br></pre></td></tr></table></figure>
+<p>For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss 00:30:01 -to 00:30:11 -i &#39;227 ELEVEN.mp4&#39; -preset veryslow -c:v libx264 cut.mkv</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2021/01/11/Kafka-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/11/Kafka-Learning/" class="post-title-link" itemprop="url">Kafka Learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-11 18:02:25 18:02:25" itemprop="dateCreated datePublished" datetime="2021-01-11T18:02:25+08:00">2021-01-11 18:02:25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-13 20:27:09 20:27:09" itemprop="dateModified" datetime="2021-02-13T20:27:09+08:00">2021-02-13 20:27:09</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/01/11/Kafka-Learning/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/11/Kafka-Learning/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="start-kafka">Start Kafka</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;bin&#x2F;zookeeper-server-start.sh .&#x2F;config&#x2F;zookeeper.properties</span><br><span class="line">$ .&#x2F;bin&#x2F;kafka-server-start.sh .&#x2F;config&#x2F;server.properties</span><br><span class="line">$ .&#x2F;bin&#x2F;kafka-topics.sh --create --topic test-topic --replication-factor 1 --partitions 1 --zookeeper localhost:2181</span><br><span class="line">$ .&#x2F;bin&#x2F;kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic test-topic --partitions 10</span><br></pre></td></tr></table></figure>
+<h1 id="create-new-project">Create New Project</h1>
+<p>Run: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId&#x3D;org.torapture.test -DartifactId&#x3D;kafka-test -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DarchetypeVersion&#x3D;1.4 -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure></p>
+<p>To use the producer and consumer, you can use the following maven dependency: <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.kafka<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kafka-clients<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>After modified, the file structure is: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ tree kafka-test</span><br><span class="line">kafka-test</span><br><span class="line">├── kafka-test.iml</span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   └── java</span><br><span class="line">    │       └── org</span><br><span class="line">    │           └── torapture</span><br><span class="line">    │               └── test</span><br><span class="line">    │                   ├── Consumer.java</span><br><span class="line">    │                   └── Producer.java</span><br><span class="line">    └── test</span><br><span class="line">        └── java</span><br><span class="line">            └── org</span><br><span class="line">                └── torapture</span><br><span class="line">                    └── test</span><br><span class="line">                        └── AppTest.java</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><code>Producer</code>: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.torapture.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.KafkaProducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerRecord;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.RecordMetadata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Producer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">onCompletion</span><span class="params">(RecordMetadata meta, Exception e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.printf(<span class="string">&quot;offset: %d, partition: %d, topic: %s%n&quot;</span>, meta.offset(), meta.partition(), meta.topic());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;localhost:9092&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line"></span><br><span class="line">        KafkaProducer&lt;String, String&gt; producer = <span class="keyword">new</span> KafkaProducer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            String key = String.valueOf(i);</span><br><span class="line">            String value = String.format(<span class="string">&quot;value is %d&quot;</span>, i);</span><br><span class="line">            ProducerRecord&lt;String, String&gt; record = <span class="keyword">new</span> ProducerRecord&lt;&gt;(<span class="string">&quot;test-topic&quot;</span>, key, value);</span><br><span class="line">            producer.send(record, Producer::onCompletion);</span><br><span class="line">        &#125;</span><br><span class="line">        producer.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Consumer</code>: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.torapture.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecord;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecords;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.KafkaConsumer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.common.errors.WakeupException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wakeup</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    KafkaConsumer&lt;K, V&gt; consumer;</span><br><span class="line"></span><br><span class="line">    Wakeup(KafkaConsumer&lt;K, V&gt; consumer) &#123;</span><br><span class="line">        <span class="keyword">this</span>.consumer = consumer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        consumer.wakeup();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;localhost:9092&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;key.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;value.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;group.id&quot;</span>, <span class="string">&quot;test-group&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;auto.offset.reset&quot;</span>, <span class="string">&quot;earliest&quot;</span>);</span><br><span class="line"></span><br><span class="line">        KafkaConsumer&lt;String, String&gt; consumer = <span class="keyword">new</span> KafkaConsumer&lt;&gt;(props);</span><br><span class="line">        consumer.subscribe(Collections.singletonList(<span class="string">&quot;test-topic&quot;</span>));</span><br><span class="line"></span><br><span class="line">        Thread wakeup = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Wakeup&lt;&gt;(consumer));</span><br><span class="line">        wakeup.start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                ConsumerRecords&lt;String, String&gt; records = consumer.poll(<span class="number">100</span>);</span><br><span class="line">                <span class="keyword">for</span> (ConsumerRecord&lt;String, String&gt; record : records) &#123;</span><br><span class="line">                    System.out.printf(<span class="string">&quot;topic = %s, partition = %d, offset = %d, key = %s, value = %s%n&quot;</span>,</span><br><span class="line">                            record.topic(), record.partition(), record.offset(), record.key(), record.value());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (WakeupException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            consumer.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        wakeup.join();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="produce-and-consume">Produce and Consume</h1>
+<p>Build the project first by: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
+<p>Then: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">$ mvn exec:java -Dexec.mainClass&#x3D;org.torapture.test.Producer                                        </span><br><span class="line">WARNING: An illegal reflective access operation has occurred</span><br><span class="line">WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:&#x2F;usr&#x2F;share&#x2F;maven&#x2F;lib&#x2F;guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)</span><br><span class="line">WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1</span><br><span class="line">WARNING: Use --illegal-access&#x3D;warn to enable warnings of further illegal reflective access operations</span><br><span class="line">WARNING: All illegal access operations will be denied in a future release</span><br><span class="line">[INFO] Scanning for projects...</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] -------------------&lt; org.torapture.test:kafka-test &gt;--------------------</span><br><span class="line">[INFO] Building kafka-test 1.0-SNAPSHOT</span><br><span class="line">[INFO] --------------------------------[ jar ]---------------------------------</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] --- exec-maven-plugin:3.0.0:java (default-cli) @ kafka-test ---</span><br><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http:&#x2F;&#x2F;www.slf4j.org&#x2F;codes.html#StaticLoggerBinder for further details.</span><br><span class="line">offset: 0, partition: 3, topic: test-topic</span><br><span class="line">offset: 1, partition: 3, topic: test-topic</span><br><span class="line">offset: 2, partition: 3, topic: test-topic</span><br><span class="line">offset: 0, partition: 0, topic: test-topic</span><br><span class="line">offset: 0, partition: 8, topic: test-topic</span><br><span class="line">offset: 1, partition: 8, topic: test-topic</span><br><span class="line">offset: 0, partition: 9, topic: test-topic</span><br><span class="line">offset: 1, partition: 9, topic: test-topic</span><br><span class="line">offset: 0, partition: 6, topic: test-topic</span><br><span class="line">offset: 0, partition: 7, topic: test-topic</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time:  0.848 s</span><br><span class="line">[INFO] Finished at: 2021-01-11T18:56:03+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ mvn exec:java -Dexec.mainClass&#x3D;org.torapture.test.Consumer</span><br><span class="line">WARNING: An illegal reflective access operation has occurred</span><br><span class="line">WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:&#x2F;usr&#x2F;share&#x2F;maven&#x2F;lib&#x2F;guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)</span><br><span class="line">WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1</span><br><span class="line">WARNING: Use --illegal-access&#x3D;warn to enable warnings of further illegal reflective access operations</span><br><span class="line">WARNING: All illegal access operations will be denied in a future release</span><br><span class="line">[INFO] Scanning for projects...</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] -------------------&lt; org.torapture.test:kafka-test &gt;--------------------</span><br><span class="line">[INFO] Building kafka-test 1.0-SNAPSHOT</span><br><span class="line">[INFO] --------------------------------[ jar ]---------------------------------</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] --- exec-maven-plugin:3.0.0:java (default-cli) @ kafka-test ---</span><br><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http:&#x2F;&#x2F;www.slf4j.org&#x2F;codes.html#StaticLoggerBinder for further details.</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 3, offset &#x3D; 0, key &#x3D; 3, value &#x3D; value is 3</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 3, offset &#x3D; 1, key &#x3D; 4, value &#x3D; value is 4</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 3, offset &#x3D; 2, key &#x3D; 9, value &#x3D; value is 9</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 0, offset &#x3D; 0, key &#x3D; 5, value &#x3D; value is 5</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 8, offset &#x3D; 0, key &#x3D; 2, value &#x3D; value is 2</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 8, offset &#x3D; 1, key &#x3D; 6, value &#x3D; value is 6</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 9, offset &#x3D; 0, key &#x3D; 1, value &#x3D; value is 1</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 9, offset &#x3D; 1, key &#x3D; 7, value &#x3D; value is 7</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 6, offset &#x3D; 0, key &#x3D; 0, value &#x3D; value is 0</span><br><span class="line">topic &#x3D; test-topic, partition &#x3D; 7, offset &#x3D; 0, key &#x3D; 8, value &#x3D; value is 8</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time:  10.663 s</span><br><span class="line">[INFO] Finished at: 2021-01-11T18:56:17+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/12/06/%E9%BB%91%E6%9A%97%E4%B9%8B%E9%AD%823%E6%AD%A6%E5%99%A8-10%E6%B5%81%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -893,183 +1068,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/" class="post-title-link" itemprop="url">Install and Config MySQL 8 on Ubuntu</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-10 12:11:00 12:11:00" itemprop="dateCreated datePublished" datetime="2020-06-10T12:11:00+08:00">2020-06-10 12:11:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="remove-completely-and-install">Remove Completely and Install</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove --purge <span class="string">&quot;mysql*&quot;</span></span><br><span class="line">sudo apt-get purge <span class="string">&quot;mysql*&quot;</span></span><br><span class="line">sudo apt-get autoremove</span><br><span class="line">sudo apt-get autoclean</span><br><span class="line">sudo apt-get remove dbconfig-mysql</span><br><span class="line">sudo apt-get dist-upgrade</span><br><span class="line">sudo rm -rf /etc/mysql /var/lib/mysql</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
-<h1 id="enable-remote-access">Enable Remote Access</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line">mysql -uroot -e <span class="string">&quot; \</span></span><br><span class="line"><span class="string">    ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH caching_sha2_password BY &#x27;yourpasswd&#x27;; \</span></span><br><span class="line"><span class="string">    CREATE USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;yourpasswd&#x27;; \</span></span><br><span class="line"><span class="string">    GRANT ALL PRIVILEGES ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;; \</span></span><br><span class="line"><span class="string">    FLUSH PRIVILEGES;&quot;</span></span><br></pre></td></tr></table></figure>
-<p>In <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>:</p>
-<ul>
-<li>replace <code>bind-address = 127.0.0.1</code> with <code>bind-address = 0.0.0.0</code></li>
-</ul>
-<p>Then restart mysql by <code>sudo service mysql restart</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/06/07/Protobuf-Examples/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/07/Protobuf-Examples/" class="post-title-link" itemprop="url">Protobuf Examples</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-07 13:37:00 13:37:00" itemprop="dateCreated datePublished" datetime="2020-06-07T13:37:00+08:00">2020-06-07 13:37:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/06/07/Protobuf-Examples/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/07/Protobuf-Examples/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="installation">Installation</h1>
-<p>https://github.com/protocolbuffers/protobuf/blob/master/src/README.md</p>
-<h1 id="proto">Proto</h1>
-<p><code>pb/entities.proto</code>: <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> entities;</span><br><span class="line"><span class="keyword">option</span> go_package = <span class="string">&quot;pb/entities&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Gender</span> </span>&#123;</span><br><span class="line">    UNKNOWN = <span class="number">0</span>;</span><br><span class="line">    MALE = <span class="number">1</span>;</span><br><span class="line">    FEMALE = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    Gender gender = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">string</span> name = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">repeated</span> <span class="built_in">string</span> tags = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">double</span> height = <span class="number">4</span>;</span><br><span class="line">    <span class="built_in">int32</span> age = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">oneof</span> important &#123;</span><br><span class="line">        <span class="built_in">string</span> task = <span class="number">6</span>;</span><br><span class="line">        <span class="built_in">int32</span> problem = <span class="number">7</span>;</span><br><span class="line">        <span class="built_in">double</span> point = <span class="number">8</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    map&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; extra = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h1 id="golang">Golang</h1>
-<p>https://developers.google.com/protocol-buffers/docs/gotutorial</p>
-<p><code>$ protoc --proto_path=./ --go_out=./ pb/entities.proto</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;./pb/entities&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/golang/protobuf/proto&quot;</span></span><br><span class="line">    logger <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line">    prefixed <span class="string">&quot;github.com/x-cray/logrus-prefixed-formatter&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    logger.SetFormatter(&amp;prefixed.TextFormatter&#123;</span><br><span class="line">        TimestampFormat: <span class="string">&quot;2006-01-02 15:04:05&quot;</span>,</span><br><span class="line">        FullTimestamp:   <span class="literal">true</span>,</span><br><span class="line">        ForceFormatting: <span class="literal">true</span>,</span><br><span class="line">        DisableColors:   <span class="literal">true</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    logger.SetOutput(os.Stdout)</span><br><span class="line">    logger.SetLevel(logger.DebugLevel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p := &amp;entities.Person&#123;</span><br><span class="line">        Gender:    entities.Gender_FEMALE,</span><br><span class="line">        Name:      <span class="string">&quot;ToRapture&quot;</span>,</span><br><span class="line">        Tags:      []<span class="keyword">string</span>&#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>&#125;,</span><br><span class="line">        Height:    <span class="number">114</span>,</span><br><span class="line">        Age:       <span class="number">32</span>,</span><br><span class="line">        Important: &amp;entities.Person_Task&#123;Task: <span class="string">&quot;OneOfExample&quot;</span>&#125;,</span><br><span class="line">        Extra: <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>&#123;</span><br><span class="line">            <span class="string">&quot;who&quot;</span>:   <span class="string">&quot;are you&quot;</span>,</span><br><span class="line">            <span class="string">&quot;where&quot;</span>: <span class="string">&quot;to go&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logger.Infof(<span class="string">&quot;p: %v&quot;</span>, p)</span><br><span class="line">    bt, err := proto.Marshal(p)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;proto marshal error: %v&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    b := <span class="built_in">new</span>(entities.Person)</span><br><span class="line">    <span class="keyword">if</span> err = proto.Unmarshal(bt, b); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;proto unmarshal error: %v&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logger.Infof(<span class="string">&quot;b: %v, b == p: %v&quot;</span>, b, proto.Equal(b, p))</span><br><span class="line">    <span class="keyword">switch</span> oneOf := b.GetImportant().(<span class="keyword">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> *entities.Person_Task:</span><br><span class="line">        logger.Infof(<span class="string">&quot;oneOf is task, value: %v&quot;</span>, oneOf.Task)</span><br><span class="line">    <span class="keyword">case</span> *entities.Person_Point:</span><br><span class="line">        logger.Infof(<span class="string">&quot;oneOf is point value: %v&quot;</span>, oneOf.Point)</span><br><span class="line">    <span class="keyword">case</span> *entities.Person_Problem:</span><br><span class="line">        logger.Infof(<span class="string">&quot;oneOf is problem value: %v&quot;</span>, oneOf.Problem)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := ioutil.WriteFile(<span class="string">&quot;person.data&quot;</span>, bt, <span class="number">0666</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Errorf(<span class="string">&quot;write to file error: %v&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="python">Python</h1>
-<p>https://developers.google.com/protocol-buffers/docs/pythontutorial</p>
-<p><code>$ protoc --proto_path=./ --python_out=../python pb/entities.proto</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pb <span class="keyword">import</span> entities_pb2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    data = <span class="string">b&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">&quot;../go/person.data&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        data = f.read()</span><br><span class="line">    person = entities_pb2.Person()</span><br><span class="line">    person.name = <span class="string">&quot;ToRapture&quot;</span></span><br><span class="line">    print(<span class="string">&quot;person: %s&quot;</span> % person)</span><br><span class="line">    print(<span class="string">&quot;serialized: %s&quot;</span> % person.SerializeToString())</span><br><span class="line"></span><br><span class="line">    person.ParseFromString(data)</span><br><span class="line">    print(<span class="string">&quot;parsed: %s&quot;</span> % person)</span><br><span class="line"></span><br><span class="line">    which = person.WhichOneof(<span class="string">&#x27;important&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;which: %s&#x27;</span> % which)</span><br><span class="line">    <span class="keyword">if</span> which:</span><br><span class="line">        print(<span class="string">&#x27;oneof value: %s&#x27;</span> % getattr(person, which))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1141,14 +1139,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1189,7 +1187,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1264,59 +1262,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
