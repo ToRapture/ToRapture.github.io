@@ -154,6 +154,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/23/IP-checksum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/23/IP-checksum/" class="post-title-link" itemprop="url">IP checksum</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-23 14:22:00 14:22:00" itemprop="dateCreated datePublished" datetime="2020-04-23T14:22:00+08:00">2020-04-23 14:22:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/04/23/IP-checksum/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/23/IP-checksum/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>To do an experiment, first capture an IP packet, as we can see the checksum is 0xCAD7. Then we set the checksum field to 0, and calculate the checksum, then we will get 0xCAD7. Set 0xCAD7 to the checksum field and calculate the checksum again, we will get 0 then. <img src="/images/posts/IP-checksum/0.png" /></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">ip_checksum</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">short</span>&gt; &amp;v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++) &#123;</span><br><span class="line">        sum += v[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (sum &gt; <span class="number">0xFFFF</span>) &#123;</span><br><span class="line">        sum = (sum &amp; <span class="number">0xFFFF</span>) + (sum &gt;&gt; <span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ~sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">short</span>&gt; vec&#123;<span class="number">0x4500</span>, <span class="number">0x0235</span>, <span class="number">0x0000</span>, <span class="number">0x4000</span>, <span class="number">0x4006</span>, <span class="number">0x0000</span>, <span class="number">0x0a01</span>, <span class="number">0xbf44</span>, <span class="number">0x8ba2</span>, <span class="number">0x1904</span>&#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> sum = ip_checksum(vec);</span><br><span class="line">    assert(sum == <span class="number">0xcad7</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;checksum = 0x%X\n&quot;</span>, sum);</span><br><span class="line"></span><br><span class="line">    vec[<span class="number">5</span>] = sum;</span><br><span class="line"></span><br><span class="line">    sum = ip_checksum(vec);</span><br><span class="line">    assert(sum == <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%X\n&quot;</span>, sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/17/Learn-Goroutine/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -942,97 +1022,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/01/ID-Generator/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/01/ID-Generator/" class="post-title-link" itemprop="url">ID Generator</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-01 16:52:00 16:52:00" itemprop="dateCreated datePublished" datetime="2020-04-01T16:52:00+08:00">2020-04-01 16:52:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/04/01/ID-Generator/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/01/ID-Generator/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="implementation">Implementation</h2>
-<p>Some details of this implementation borrow from <a target="_blank" rel="noopener" href="https://github.com/sony/sonyflake">sonyflake</a>. Here using 8 bits to represent time in units of 500ms, 4 bits to represent sequence, 4 bits to represent machine. As a result:</p>
-<ul>
-<li>The lifetime is <span class="math inline">\(2^8 \times 500ms = 128s\)</span></li>
-<li>It can work in <span class="math inline">\(2^4 = 16\)</span> distributed machines</li>
-<li>It can generate <span class="math inline">\(2^4 = 16\)</span> IDs per <span class="math inline">\(500ms\)</span> at most in a single thread</li>
-</ul>
-<h3 id="code">Code</h3>
-<p><code>server</code>: <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;errors&quot;</span></span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">    <span class="string">&quot;sync&quot;</span></span><br><span class="line">    <span class="string">&quot;time&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line">    logger <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/x-cray/logrus-prefixed-formatter&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    logger.SetFormatter(&amp;prefixed.TextFormatter&#123;</span><br><span class="line">        TimestampFormat: <span class="string">&quot;2006-01-02 15:04:05&quot;</span>,</span><br><span class="line">        FullTimestamp:   <span class="literal">true</span>,</span><br><span class="line">        ForceFormatting: <span class="literal">true</span>,</span><br><span class="line">        DisableColors:   <span class="literal">true</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    logger.SetOutput(os.Stdout)</span><br><span class="line">    logger.SetLevel(logger.DebugLevel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    BitLenTick      = <span class="number">8</span></span><br><span class="line">    BitLenSequence  = <span class="number">4</span></span><br><span class="line">    BitLenMachineID = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    tickTimeUnit = time.Millisecond * <span class="number">500</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> idFlake *IDFlake</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> IDFlake <span class="keyword">struct</span> &#123;</span><br><span class="line">    mu sync.Mutex</span><br><span class="line"></span><br><span class="line">    machineID   <span class="keyword">int64</span></span><br><span class="line">    startTick   <span class="keyword">int64</span> <span class="comment">// ticks of the start time of IDFlake from UNIX epoch</span></span><br><span class="line">    elapsedTick <span class="keyword">int64</span> <span class="comment">// elapsed ticks from start tick</span></span><br><span class="line">    sequence    <span class="keyword">int64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">toFlakeTime</span><span class="params">(t time.Time)</span> <span class="title">int64</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> t.UTC().UnixNano() / <span class="keyword">int64</span>(tickTimeUnit)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewIDFlake</span><span class="params">(machineID <span class="keyword">int64</span>, startTime time.Time)</span> *<span class="title">IDFlake</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &amp;IDFlake&#123;</span><br><span class="line">        machineID:   machineID,</span><br><span class="line">        startTick:   toFlakeTime(startTime),</span><br><span class="line">        elapsedTick: <span class="number">0</span>,</span><br><span class="line">        sequence:    <span class="number">0</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f *IDFlake)</span> <span class="title">toID</span><span class="params">()</span> <span class="params">(<span class="keyword">uint64</span>, error)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> f.elapsedTick &gt;= <span class="number">1</span>&lt;&lt;BitLenTick &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>, errors.New(<span class="string">&quot;over the time limit&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">uint64</span>(f.elapsedTick&lt;&lt;(BitLenMachineID+BitLenSequence)) | <span class="keyword">uint64</span>(f.machineID&lt;&lt;BitLenSequence) | <span class="keyword">uint64</span>(f.sequence), <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f *IDFlake)</span> <span class="title">getID</span><span class="params">()</span> <span class="params">(<span class="keyword">uint64</span>, error)</span></span> &#123;</span><br><span class="line">    f.mu.Lock()</span><br><span class="line">    <span class="keyword">defer</span> f.mu.Unlock()</span><br><span class="line"></span><br><span class="line">    currentTick := toFlakeTime(time.Now()) - f.startTick</span><br><span class="line">    <span class="keyword">if</span> f.elapsedTick &lt; currentTick &#123;</span><br><span class="line">        f.sequence = <span class="number">0</span></span><br><span class="line">        f.elapsedTick = currentTick</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        f.sequence = (f.sequence + <span class="number">1</span>) &amp; (<span class="number">1</span>&lt;&lt;BitLenSequence - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> f.sequence == <span class="number">0</span> &#123;</span><br><span class="line">            f.elapsedTick++</span><br><span class="line">            sleepFor := sleepTime(f.elapsedTick - currentTick)</span><br><span class="line">            time.Sleep(sleepFor)</span><br><span class="line">            logger.Infof(<span class="string">&quot;slept for %.8fms&quot;</span>, sleepFor.Seconds()*<span class="number">1000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> f.toID()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sleepTime</span><span class="params">(overTick <span class="keyword">int64</span>)</span> <span class="title">time</span>.<span class="title">Duration</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> time.Duration(overTick)*tickTimeUnit - time.Duration(time.Now().UTC().UnixNano())%tickTimeUnit</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Decompose</span><span class="params">(id <span class="keyword">uint64</span>)</span> <span class="title">map</span>[<span class="title">string</span>]<span class="title">uint64</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">uint64</span>&#123;</span><br><span class="line">        <span class="string">&quot;id&quot;</span>:       id,</span><br><span class="line">        <span class="string">&quot;tick&quot;</span>:     id &gt;&gt; (BitLenMachineID + BitLenSequence),</span><br><span class="line">        <span class="string">&quot;machine&quot;</span>:  (id &gt;&gt; BitLenSequence) &amp; (<span class="number">1</span>&lt;&lt;BitLenMachineID - <span class="number">1</span>),</span><br><span class="line">        <span class="string">&quot;sequence&quot;</span>: id &amp; (<span class="number">1</span>&lt;&lt;BitLenSequence - <span class="number">1</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getID</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    id, err := idFlake.getID()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        logger.Warnf(<span class="string">&quot;getID error: %v&quot;</span>, err)</span><br><span class="line">        c.JSON(http.StatusOK,</span><br><span class="line">            <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">                <span class="string">&quot;error&quot;</span>: err.Error(),</span><br><span class="line">            &#125;,</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    result := Decompose(id)</span><br><span class="line">    c.JSON(http.StatusOK, result)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">httpRun</span><span class="params">()</span></span> &#123;</span><br><span class="line">    r := gin.Default()</span><br><span class="line">    r.GET(<span class="string">&quot;/get_id&quot;</span>, getID)</span><br><span class="line">    r.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    idFlake = NewIDFlake(<span class="number">8</span>, time.Now())</span><br><span class="line">    httpRun()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>client</code>: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        res = requests.get(<span class="string">&#x27;http://127.0.0.1:8080/get_id&#x27;</span>).json()</span><br><span class="line">        <span class="keyword">print</span> res</span><br><span class="line">        <span class="keyword">if</span> res.get(<span class="string">&#x27;error&#x27;</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
-<h3 id="run">Run</h3>
-<p><code>server</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in &quot;debug&quot; mode. Switch to &quot;release&quot; mode in production.</span><br><span class="line"> - using env:	export GIN_MODE&#x3D;release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] Listening and serving HTTP on :8080</span><br><span class="line">[2020-04-01 16:11:05]  INFO slept for 285.71300000ms</span><br><span class="line">[2020-04-01 16:11:06]  INFO slept for 446.46500000ms</span><br><span class="line">[2020-04-01 16:11:06]  INFO slept for 450.56500000ms</span><br><span class="line">[2020-04-01 16:11:07]  INFO slept for 449.93100000ms</span><br><span class="line">......</span><br><span class="line">[2020-04-01 16:13:08]  INFO slept for 449.52100000ms</span><br><span class="line">[2020-04-01 16:13:09]  INFO slept for 441.43400000ms</span><br><span class="line">[2020-04-01 16:13:09]  INFO slept for 434.80600000ms</span><br><span class="line">[2020-04-01 16:13:10]  INFO slept for 445.62500000ms</span><br><span class="line">[2020-04-01 16:13:10]  INFO slept for 444.83400000ms</span><br><span class="line">[2020-04-01 16:13:11]  INFO slept for 437.82700000ms</span><br><span class="line">[2020-04-01 16:13:11]  WARN getID error: over the time limit</span><br></pre></td></tr></table></figure></p>
-<p><code>client</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1024, u&#39;sequence&#39;: 0&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1025, u&#39;sequence&#39;: 1&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1026, u&#39;sequence&#39;: 2&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1027, u&#39;sequence&#39;: 3&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1028, u&#39;sequence&#39;: 4&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1029, u&#39;sequence&#39;: 5&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1030, u&#39;sequence&#39;: 6&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1031, u&#39;sequence&#39;: 7&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1032, u&#39;sequence&#39;: 8&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1033, u&#39;sequence&#39;: 9&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1034, u&#39;sequence&#39;: 10&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1035, u&#39;sequence&#39;: 11&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1036, u&#39;sequence&#39;: 12&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1037, u&#39;sequence&#39;: 13&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1038, u&#39;sequence&#39;: 14&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 4, u&#39;id&#39;: 1039, u&#39;sequence&#39;: 15&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 5, u&#39;id&#39;: 1280, u&#39;sequence&#39;: 0&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 5, u&#39;id&#39;: 1281, u&#39;sequence&#39;: 1&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 5, u&#39;id&#39;: 1282, u&#39;sequence&#39;: 2&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 5, u&#39;id&#39;: 1283, u&#39;sequence&#39;: 3&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 5, u&#39;id&#39;: 1284, u&#39;sequence&#39;: 4&#125;</span><br><span class="line">......</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 254, u&#39;id&#39;: 65037, u&#39;sequence&#39;: 13&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 254, u&#39;id&#39;: 65038, u&#39;sequence&#39;: 14&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 254, u&#39;id&#39;: 65039, u&#39;sequence&#39;: 15&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65280, u&#39;sequence&#39;: 0&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65281, u&#39;sequence&#39;: 1&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65282, u&#39;sequence&#39;: 2&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65283, u&#39;sequence&#39;: 3&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65284, u&#39;sequence&#39;: 4&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65285, u&#39;sequence&#39;: 5&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65286, u&#39;sequence&#39;: 6&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65287, u&#39;sequence&#39;: 7&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65288, u&#39;sequence&#39;: 8&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65289, u&#39;sequence&#39;: 9&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65290, u&#39;sequence&#39;: 10&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65291, u&#39;sequence&#39;: 11&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65292, u&#39;sequence&#39;: 12&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65293, u&#39;sequence&#39;: 13&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65294, u&#39;sequence&#39;: 14&#125;</span><br><span class="line">&#123;u&#39;machine&#39;: 0, u&#39;tick&#39;: 255, u&#39;id&#39;: 65295, u&#39;sequence&#39;: 15&#125;</span><br><span class="line">&#123;u&#39;error&#39;: u&#39;over the time limit&#39;&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1104,14 +1093,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
