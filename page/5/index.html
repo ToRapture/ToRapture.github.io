@@ -154,6 +154,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/" class="post-title-link" itemprop="url">Leetcode 96. Unique Binary Search Trees</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-07 20:02:00 20:02:00" itemprop="dateCreated datePublished" datetime="2020-04-07T20:02:00+08:00">2020-04-07 20:02:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/unique-binary-search-trees/">Unique Binary Search Trees</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// We consider the position of node n in the tree first.</span></span><br><span class="line">        <span class="comment">// Because all nodes on the tree except for node n is less than node,</span></span><br><span class="line">        <span class="comment">// if node n has children, that must be its left child.</span></span><br><span class="line">        <span class="comment">// Node n can have a parent if the value of its parent is less than its.</span></span><br><span class="line">        <span class="comment">// So we separate the n - 1 nodes into 2 parts, the first part is considered to be the parent part of node n,</span></span><br><span class="line">        <span class="comment">// and the second part is considered to be the left child part of node n.</span></span><br><span class="line">        <span class="comment">// We traverse every possible separation, for each separation we add the multiplication of the number of the combination</span></span><br><span class="line">        <span class="comment">// of the two parts to the answer of node n.</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                dp[i] += dp[j] * dp[i - <span class="number">1</span> - j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/04/04/Search-in-Rotated-Sorted-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -979,98 +1059,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/17/NSQ%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/NSQ%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86/" class="post-title-link" itemprop="url">NSQ学习 逻辑梳理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-17 16:27:00 16:27:00" itemprop="dateCreated datePublished" datetime="2019-12-17T16:27:00+08:00">2019-12-17 16:27:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/12/17/NSQ%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/17/NSQ学习-逻辑梳理/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="消费者连接nsqd或nsqlookupd">消费者连接NSQD或NSQLookupd</h1>
-<p>消费者可以连接多个<code>NSQLookupd</code>，消费者从每一个<code>NSQLookupd</code>查询拥有需要消费的<code>Topic</code>的<code>NSQD</code>，并与查询得到的每一个<code>NSQD</code>建立连接。 每当<code>NSQD</code>中<code>Topic</code>或<code>Channle</code>出现了变动，<code>NSQD</code>会通知每一个与它相连的<code>NSQLookupd</code>。</p>
-<h1 id="一条消息的生命周期">一条消息的生命周期</h1>
-<p>一条消息首先被生产者投递到<code>NSQD</code>的<code>Topic</code>，然后由<code>Topic.messagePump</code>这个方法分发给<code>Topic</code>的<code>Channel</code>。</p>
-<p><code>nsq/nsqd/protocol_v2.go</code>中的<code>protocolV2.IOLoop</code>方法一边根据客户端的接收情况把<code>Channel</code>中的消息发给客户端（<code>protocolV2.messagePump</code>），一遍处理来自客户端的指令如<code>REQ</code>、<code>FIN</code>等。 消息发给客户端之前，首先push到<code>InFlightQueue</code>这个优先队列中，这个队列可以表示正在处理中的消息。 <code>InFlightQueue</code>是最小堆，用于比较的属性是过期时刻。 每当消费者发送表示执行成功的<code>FIN</code>指令给<code>NSQD</code>时，<code>NSQD</code>就会把执行成功的消息从对应<code>Channel</code>的<code>InFlightQueue</code>删除； 如果直到超时还未收到消费者的<code>FIN</code>指令，那么对应的消息会从<code>InFlightQueue</code>删除，然后重新投递给<code>Channel</code>； 如果收到<code>REQ</code>指令，说明对应消息需要重新执行，这条消息会从<code>InFlightQueue</code>删除然后进入<code>DeferredQueue</code>，等到需要被执行的时刻再重新投递给<code>Channel</code>。 <code>DeferredQueue</code>也是最小堆，用于比较的属性是消息被执行的时刻。</p>
-<p><img src="/images/posts/NSQ学习-逻辑梳理/0.png" /></p>
-<h1 id="启动和关闭">启动和关闭</h1>
-<h2 id="deferredqueue和inflightqueue">DeferredQueue和InFlightQueue</h2>
-<p><code>NSQD</code>启动时，通过<code>Metadata</code>生成<code>Topic</code>和<code>Channel</code>，并根据<code>Topic</code>和<code>Channel</code>找到对应的文件队列。</p>
-<p><code>NSQD</code>关闭时，每一个<code>Channel</code>的<code>memoryMsgChan</code>的消息会被写到对应的文件队列里，<code>inFlightMessages</code>和<code>deferredMessages</code>同上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1138,14 +1130,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1186,7 +1178,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

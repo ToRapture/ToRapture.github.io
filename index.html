@@ -154,6 +154,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2022/02/20/Regex-Practice-in-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/20/Regex-Practice-in-Java/" class="post-title-link" itemprop="url">Regex Practice in Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-02-20 13:17:15 13:17:15" itemprop="dateCreated datePublished" datetime="2022-02-20T13:17:15+08:00">2022-02-20 13:17:15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-20 13:18:16 13:18:16" itemprop="dateModified" datetime="2022-02-20T13:18:16+08:00">2022-02-20 13:18:16</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/02/20/Regex-Practice-in-Java/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/02/20/Regex-Practice-in-Java/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertArrayEquals;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertFalse;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertTrue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getGroups</span><span class="params">(Matcher m, <span class="keyword">int</span> groups)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">while</span> (m.find()) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= groups; i++) &#123;</span><br><span class="line">                result.add(m.group(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMain</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Returns only true if the WHOLE string can be matched.</span></span><br><span class="line">        assertTrue(<span class="string">&quot;&quot;</span>.matches(<span class="string">&quot;&quot;</span>));</span><br><span class="line">        assertTrue(<span class="string">&quot;&quot;</span>.matches(<span class="string">&quot;^$&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertTrue(<span class="string">&quot;abc&quot;</span>.matches(<span class="string">&quot;abc&quot;</span>));</span><br><span class="line">        assertTrue(<span class="string">&quot;abc&quot;</span>.matches(<span class="string">&quot;^abc$&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertTrue(<span class="string">&quot;abc&quot;</span>.matches(<span class="string">&quot;\\babc&quot;</span>));</span><br><span class="line">        assertTrue(<span class="string">&quot;abc&quot;</span>.matches(<span class="string">&quot;^\\babc$&quot;</span>));</span><br><span class="line">        assertFalse(<span class="string">&quot;abc&quot;</span>.matches(<span class="string">&quot;^a\\bbc$&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertTrue(<span class="string">&quot;abc-112=112-abc&quot;</span>.matches(<span class="string">&quot;^(\\w+)-(\\d+)=\\2-\\1$&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertTrue(<span class="string">&quot;He2LlO&quot;</span>.matches(<span class="string">&quot;(?i)he\\dllo&quot;</span>));</span><br><span class="line">        assertFalse(<span class="string">&quot;He2LlO&quot;</span>.matches(<span class="string">&quot;he\\dllo&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertTrue(<span class="string">&quot;abcabcabc&quot;</span>.matches(<span class="string">&quot;^(abc)+$&quot;</span>));</span><br><span class="line">        assertEquals(<span class="string">&quot;2211-abc+=1145-bba&quot;</span>, <span class="string">&quot;abc2211+=bba1145&quot;</span>.replaceAll(<span class="string">&quot;([a-z]+)(\\d+)&quot;</span>, <span class="string">&quot;$2-$1&quot;</span>));</span><br><span class="line">        assertEquals(<span class="string">&quot;2211-abc+=bba1145&quot;</span>, <span class="string">&quot;abc2211+=bba1145&quot;</span>.replaceFirst(<span class="string">&quot;([a-z]+)(\\d+)&quot;</span>, <span class="string">&quot;$2-$1&quot;</span>));</span><br><span class="line">        assertEquals(<span class="string">&quot;abc2211-=bba1145&quot;</span>, <span class="string">&quot;abc2211+=bba1145&quot;</span>.replace(<span class="string">&quot;+=&quot;</span>, <span class="string">&quot;-=&quot;</span>));</span><br><span class="line"></span><br><span class="line">        assertArrayEquals(<span class="keyword">new</span> String[] &#123; <span class="string">&quot;abcab&quot;</span>, <span class="string">&quot;wjio&quot;</span>, <span class="string">&quot;ksldm&quot;</span>, <span class="string">&quot;xf&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="string">&quot;000wefj&quot;</span> &#125;,</span><br><span class="line">                <span class="string">&quot;abcabc1wjion2ksldmf3xfe9wf0000wefj&quot;</span>.split(<span class="string">&quot;[a-z]\\d&quot;</span>));</span><br><span class="line">        assertArrayEquals(<span class="keyword">new</span> String[] &#123; <span class="string">&quot;abc\nab&quot;</span>, <span class="string">&quot;\nwjio&quot;</span>, <span class="string">&quot;  ksld  m&quot;</span>, <span class="string">&quot;x\nf&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="string">&quot;0\n00wefj&quot;</span> &#125;,</span><br><span class="line">                <span class="string">&quot;abc\nabc1\nwjion2  ksld  mf3x\nfe9wf00\n00wefj&quot;</span>.split(<span class="string">&quot;[a-z]\\d&quot;</span>));</span><br><span class="line"></span><br><span class="line">        Pattern p = Pattern.compile(<span class="string">&quot;(\\w+?)-(\\d+)&quot;</span>);</span><br><span class="line">        Matcher m = p.matcher(<span class="string">&quot;123-123444-444gg-212=====bbbbb111-bb1111-bb-22&quot;</span>);</span><br><span class="line">        assertArrayEquals(</span><br><span class="line">                <span class="keyword">new</span> String[] &#123; <span class="string">&quot;123-123444&quot;</span>, <span class="string">&quot;123&quot;</span>, <span class="string">&quot;123444&quot;</span>, <span class="string">&quot;444gg-212&quot;</span>, <span class="string">&quot;444gg&quot;</span>, <span class="string">&quot;212&quot;</span>, <span class="string">&quot;bb-22&quot;</span>, <span class="string">&quot;bb&quot;</span>, <span class="string">&quot;22&quot;</span> &#125;,</span><br><span class="line">                getGroups(m, <span class="number">2</span>).toArray());</span><br><span class="line"></span><br><span class="line">        Pattern q = Pattern.compile(<span class="string">&quot;(\\w+?)-(\\d+?)&quot;</span>);</span><br><span class="line">        Matcher n = q.matcher(<span class="string">&quot;123-123444-444gg-212=====bbbbb111-bb1111-bb-22&quot;</span>);</span><br><span class="line">        assertArrayEquals(</span><br><span class="line">                <span class="keyword">new</span> String[] &#123; <span class="string">&quot;123-1&quot;</span>, <span class="string">&quot;123&quot;</span>, <span class="string">&quot;1&quot;</span>, <span class="string">&quot;23444-4&quot;</span>, <span class="string">&quot;23444&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;44gg-2&quot;</span>, <span class="string">&quot;44gg&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;bb-2&quot;</span>, <span class="string">&quot;bb&quot;</span>, <span class="string">&quot;2&quot;</span> &#125;,</span><br><span class="line">                getGroups(n, <span class="number">2</span>).toArray());</span><br><span class="line"></span><br><span class="line">        Pattern r = Pattern.compile(<span class="string">&quot;\\d-\\d&quot;</span>);</span><br><span class="line">        assertArrayEquals(<span class="keyword">new</span> String[] &#123; <span class="string">&quot;2-3&quot;</span>, <span class="string">&quot;5-2&quot;</span>, <span class="string">&quot;1-3&quot;</span> &#125;,</span><br><span class="line">                getGroups(r.matcher(<span class="string">&quot;ab 2-3\n2343\r2 \t55-22\n\r3331-3\r\n-33&quot;</span>), <span class="number">0</span>).toArray());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2021/12/08/season-of-white-album/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1173,89 +1252,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2020/11/01/Merge-Sort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/01/Merge-Sort/" class="post-title-link" itemprop="url">Merge Sort</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-01 21:53:42 21:53:42" itemprop="dateCreated datePublished" datetime="2020-11-01T21:53:42+08:00">2020-11-01 21:53:42</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-01 22:13:24 22:13:24" itemprop="dateModified" datetime="2020-11-01T22:13:24+08:00">2020-11-01 22:13:24</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/11/01/Merge-Sort/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/11/01/Merge-Sort/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ms</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;temp)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">    ms(l, mid, vec, temp);</span><br><span class="line">    ms(mid + <span class="number">1</span>, r, vec, temp);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>; i &lt;= mid || j &lt;= r;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; mid) &#123;</span><br><span class="line">            temp[cnt++] = vec[j++];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; r) &#123;</span><br><span class="line">            temp[cnt++] = vec[i++];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (vec[i] &lt;= vec[j]) &#123;</span><br><span class="line">            temp[cnt++] = vec[i++];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temp[cnt++] = vec[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = l; i &lt; cnt; i++, j++) &#123;</span><br><span class="line">        vec[j] = temp[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">temp</span><span class="params">(vec.size())</span></span>;</span><br><span class="line">    ms(<span class="number">0</span>, vec.size() - <span class="number">1</span>, vec, temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="function">default_random_engine <span class="title">rd</span><span class="params">(time(<span class="literal">NULL</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cas = <span class="number">0</span>; cas &lt; <span class="number">100</span>; cas++) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">            vec.push_back(rd());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> stl = vec;</span><br><span class="line">        merge_sort(vec);</span><br><span class="line">        sort(stl.begin(), stl.end());</span><br><span class="line">        assert(vec == stl);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1323,14 +1323,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1371,7 +1371,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
