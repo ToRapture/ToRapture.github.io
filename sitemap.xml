@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://torapture.github.io/2022/02/22/WebSocket-Learning/</loc>
+    
+    <lastmod>2022-02-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://torapture.github.io/2022/02/20/Regex-Practice-in-Java/</loc>
     
     <lastmod>2022-02-20</lastmod>
@@ -107,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/29/UNIX%E7%BC%96%E7%A8%8B-I-O%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://torapture.github.io/2019/12/04/UNIX%E7%BC%96%E7%A8%8B-TCP%E5%9F%BA%E7%A1%80%E8%AF%BB%E5%86%99%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-10-11</lastmod>
@@ -121,14 +121,21 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/10/04/Ubuntu%E6%9B%B4%E6%94%B9%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E9%80%9F%E5%BA%A6/</loc>
+    <loc>https://torapture.github.io/2019/11/28/UNIX%E7%BC%96%E7%A8%8B-%E6%96%87%E4%BB%B6I-O%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/28/UNIX%E7%BC%96%E7%A8%8B-%E6%96%87%E4%BB%B6I-O%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://torapture.github.io/2019/11/29/UNIX%E7%BC%96%E7%A8%8B-I-O%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/10/04/Ubuntu%E6%9B%B4%E6%94%B9%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E9%80%9F%E5%BA%A6/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -149,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/12/24/wait%E5%92%8Csignal%E6%B5%8B%E8%AF%95/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://torapture.github.io/2019/12/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E9%80%92%E5%BD%92%E8%BD%AC%E5%BE%AA%E7%8E%AF/</loc>
     
     <lastmod>2020-10-11</lastmod>
@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/</loc>
+    <loc>https://torapture.github.io/2019/12/24/wait%E5%92%8Csignal%E6%B5%8B%E8%AF%95/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/</loc>
+    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/05/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -198,6 +198,13 @@
   </url>
   
   <url>
+    <loc>https://torapture.github.io/2019/11/05/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://torapture.github.io/2019/04/24/%E8%AE%A1%E8%92%9C%E5%AE%A238228-Max-answer-%E5%8D%95%E8%B0%83%E6%A0%88--%E7%BA%BF%E6%AE%B5%E6%A0%91/</loc>
     
     <lastmod>2020-10-11</lastmod>
@@ -205,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2017/08/29/%E8%AE%B0%E4%B8%80%E6%AC%A1Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A1%AC%E7%9B%98%E8%8E%AB%E5%90%8D%E8%A2%AB%E5%8D%A0%E6%BB%A1%E4%B8%8E%E6%8E%92%E6%9F%A5/</loc>
+    <loc>https://torapture.github.io/2019/04/26/%E8%AE%A1%E8%92%9C%E5%AE%A238229-Distance-on-the-tree-%E6%A0%91%E5%89%96/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/04/26/%E8%AE%A1%E8%92%9C%E5%AE%A238229-Distance-on-the-tree-%E6%A0%91%E5%89%96/</loc>
+    <loc>https://torapture.github.io/2017/08/29/%E8%AE%B0%E4%B8%80%E6%AC%A1Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A1%AC%E7%9B%98%E8%8E%AB%E5%90%8D%E8%A2%AB%E5%8D%A0%E6%BB%A1%E4%B8%8E%E6%8E%92%E6%9F%A5/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -233,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/04/Search-in-Rotated-Sorted-Array/</loc>
+    <loc>https://torapture.github.io/2019/12/11/Redis%E7%AC%94%E8%AE%B0-info%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/12/11/Redis%E7%AC%94%E8%AE%B0-info%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://torapture.github.io/2020/04/04/Search-in-Rotated-Sorted-Array/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -296,14 +303,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/27/UDP-headers-and-checksum/</loc>
+    <loc>https://torapture.github.io/2020/04/27/UDP-learn-by-Python3/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/27/UDP-learn-by-Python3/</loc>
+    <loc>https://torapture.github.io/2020/04/27/UDP-headers-and-checksum/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -324,14 +331,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/13/Quick-Sort/</loc>
+    <loc>https://torapture.github.io/2020/06/07/Protobuf-Examples/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/06/07/Protobuf-Examples/</loc>
+    <loc>https://torapture.github.io/2020/04/13/Quick-Sort/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -345,14 +352,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2017/09/17/2017-ACM-ICPC-Asia-Regional-Qingdao-Online/</loc>
+    <loc>https://torapture.github.io/2020/04/10/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/10/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</loc>
+    <loc>https://torapture.github.io/2017/09/17/2017-ACM-ICPC-Asia-Regional-Qingdao-Online/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -429,6 +436,13 @@
   </url>
   
   <url>
+    <loc>https://torapture.github.io/2017/09/17/HDU-5769-Substring-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://torapture.github.io/2017/09/19/HDU-6203-ping-ping-ping-LCA--%E8%B4%AA%E5%BF%83/</loc>
     
     <lastmod>2020-10-11</lastmod>
@@ -436,7 +450,7 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2017/09/17/HDU-5769-Substring-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/</loc>
+    <loc>https://torapture.github.io/2020/04/23/IP-checksum/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -457,7 +471,7 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/23/IP-checksum/</loc>
+    <loc>https://torapture.github.io/2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -465,13 +479,6 @@
   
   <url>
     <loc>https://torapture.github.io/2020/04/24/IPv4-headers/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/06/10/Install-and-Config-MySQL-8-on-Ubuntu/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -492,14 +499,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/05/03/Learning-of-DNS/</loc>
+    <loc>https://torapture.github.io/2020/05/27/Learning-Thrift/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/05/27/Learning-Thrift/</loc>
+    <loc>https://torapture.github.io/2020/05/03/Learning-of-DNS/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -513,14 +520,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2019/11/14/Manacher%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://torapture.github.io/2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/07/Leetcode-96-Unique-Binary-Search-Trees/</loc>
+    <loc>https://torapture.github.io/2019/11/14/Manacher%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -562,14 +569,14 @@
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2017/08/30/Poj-2796-Feel-Good-%E5%8D%95%E8%B0%83%E6%A0%88/</loc>
+    <loc>https://torapture.github.io/2017/09/19/Poj-2352-Stars/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2017/09/19/Poj-2352-Stars/</loc>
+    <loc>https://torapture.github.io/2017/08/30/Poj-2796-Feel-Good-%E5%8D%95%E8%B0%83%E6%A0%88/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
@@ -578,7 +585,7 @@
 
   <url>
     <loc>https://torapture.github.io/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -586,196 +593,203 @@
   
   <url>
     <loc>https://torapture.github.io/tags/Algorithm/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Network/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/TCP-IP/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Flask/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Python/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Design/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/MySQL/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Database/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Kafka/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Golang/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Memcached/</loc>
-    <lastmod>2022-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/DNS/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Thrift/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/DNS/</loc>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/NSQ/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Nginx/</loc>
-    <lastmod>2022-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/Redis/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Protobuf/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/Redis/</loc>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Java/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Regex/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/UNIX%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Ubuntu/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/FFmpeg/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E7%BA%A2%E6%A5%BC%E6%A2%A6/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/WebSocket/</loc>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E9%BB%91%E6%9A%97%E4%B9%8B%E9%AD%823/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <lastmod>2022-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
