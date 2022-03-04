@@ -154,6 +154,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2017/08/30/Poj-2796-Feel-Good-%E5%8D%95%E8%B0%83%E6%A0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/30/Poj-2796-Feel-Good-%E5%8D%95%E8%B0%83%E6%A0%88/" class="post-title-link" itemprop="url">Poj 2796 Feel Good 单调栈</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-30 15:13:00 15:13:00" itemprop="dateCreated datePublished" datetime="2017-08-30T15:13:00+08:00">2017-08-30 15:13:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/08/30/Poj-2796-Feel-Good-%E5%8D%95%E8%B0%83%E6%A0%88/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/30/Poj-2796-Feel-Good-单调栈/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>令<span class="math inline">\(sum(l, r) = \sum\limits_{i \in [l, r]} a_i\)</span>，求<span class="math inline">\(\max\{\min_{i=l}^ra_i \times sum(l, r) \  |\ 1 \le l \le r \le n \}\)</span>。 对于每一个<span class="math inline">\(a_i\)</span>，用单调栈维护出一个长度最大的区间<span class="math inline">\([L_i, R_i]\)</span>，使得<span class="math inline">\(\min_{j=L_i}^{R_i} a_j = a_i\)</span>，答案转换为<span class="math inline">\(\max\{sum(L_i, R_i) \times a_i \ | \ i \in [1, n]\}\)</span>。</p>
+<h1 id="证明">证明</h1>
+<h3 id="问题等价">问题等价</h3>
+<p><span class="math inline">\(ans(l, r) = \min_{i=l}^r \times sum(l,r)\)</span> 对于每一个<span class="math inline">\([l, r]\)</span>，有唯一二元组<span class="math inline">\((i, a_i)\)</span>满足<span class="math inline">\(a_i=\min_{j=l}^r\)</span>且下标<span class="math inline">\(i\)</span>最小。 令<span class="math inline">\([L,R]\)</span>为包含这个二元组的长度最大的区间，则有<span class="math inline">\(a_i=\min_{j=L}^{R}\)</span>。 所以<span class="math inline">\(ans(L,R)=\min_{i=L}^{R}a_i \times sum(L,R)\)</span>，又因<span class="math inline">\(sum(l,r) \le sum(L,R)\)</span>，则有<span class="math inline">\(ans(l,r) \le ans(L,R)\)</span>。 而一个这样的<span class="math inline">\([L,R]\)</span>对应多个<span class="math inline">\([l,r]\)</span>，每一个<span class="math inline">\([L_i,R_i]\)</span>又与<span class="math inline">\((i, a_i)\)</span>一一对应，答案即为<span class="math inline">\(\max\{sum(L_i, R_i) \times a_i \ | \ i \in [1, n]\}\)</span>。</p>
+<h3 id="单调栈维护">单调栈维护</h3>
+<p>对于每一个<span class="math inline">\(a_i\)</span>，使用递增单调栈<span class="math inline">\(STK\)</span>处理出<span class="math inline">\([L_i,R_i]\)</span>。 每考虑到一个元素<span class="math inline">\(a_i\)</span>时，<span class="math inline">\(L_i\)</span>在<span class="math inline">\(a_i\)</span>入栈时被处理好，<span class="math inline">\(R_i\)</span>在<span class="math inline">\(a_i\)</span>出栈时处理。 若<span class="math inline">\(a_i &gt; a_j, i &lt; j\)</span>，根据<span class="math inline">\(L\)</span>的定义，有<span class="math inline">\(L_j \le L_i\)</span>。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span> + <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">LL a[N], sum[N];</span><br><span class="line"><span class="keyword">int</span> STK[N], top;</span><br><span class="line"><span class="keyword">int</span> L[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n)) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;a[i]); a[++n] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) sum[i] = sum[i - <span class="number">1</span>] + a[i];</span><br><span class="line"></span><br><span class="line">        <span class="built_in">pair</span>&lt;LL, <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; ans = <span class="built_in">make_pair</span>(<span class="number">-1</span>, <span class="built_in">make_pair</span>(<span class="number">-1</span>, <span class="number">-1</span>));</span><br><span class="line">        top = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(top == <span class="number">0</span> || a[i] &gt;= a[STK[top]]) &#123;</span><br><span class="line">                L[i] = i;</span><br><span class="line">                STK[++top] = i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">while</span>(top &amp;&amp; a[i] &lt; a[STK[top]]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> x = STK[top--];</span><br><span class="line">                    <span class="keyword">int</span> l = L[x], r = i - <span class="number">1</span>;</span><br><span class="line">                    LL res = (sum[r] - sum[l - <span class="number">1</span>]) * a[x];</span><br><span class="line">                    ans = max(ans, <span class="built_in">make_pair</span>(res, <span class="built_in">make_pair</span>(l, r)));</span><br><span class="line">                    L[i] = L[x];</span><br><span class="line">                &#125;</span><br><span class="line">                STK[++top] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans.first);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, ans.second.first, ans.second.second);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2017/08/29/51Nod-1127-%E6%9C%80%E7%9F%AD%E7%9A%84%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6%E4%B8%B2-%E6%BB%91%E7%AA%97%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -411,14 +495,14 @@ sudo apt-get remove --purge polipo卸载polipo之后磁盘空间恢复，具体�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

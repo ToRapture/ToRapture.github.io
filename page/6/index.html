@@ -154,6 +154,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/29/Median-of-Two-Sorted-Arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/29/Median-of-Two-Sorted-Arrays/" class="post-title-link" itemprop="url">Median of Two Sorted Arrays</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-29 15:01:00 15:01:00" itemprop="dateCreated datePublished" datetime="2019-12-29T15:01:00+08:00">2019-12-29 15:01:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/12/29/Median-of-Two-Sorted-Arrays/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/29/Median-of-Two-Sorted-Arrays/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>https://leetcode.com/problems/median-of-two-sorted-arrays/</p>
+<p>函数<span class="math inline">\(kth\)</span>表示归并两个数组时得到的第<span class="math inline">\(k\)</span>个元素，函数的计算过程为，每次从<span class="math inline">\(A\)</span>或<span class="math inline">\(B\)</span>数组的其中一个数组中，找出<span class="math inline">\(p\)</span>个元素，这<span class="math inline">\(p\)</span>个元素不大于归并得到的第<span class="math inline">\(k\)</span>个元素，接着把这<span class="math inline">\(p\)</span>个元素排除掉，继续在<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>数组的剩余部分找归并<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>数组剩余部分后得到的第<span class="math inline">\(k-p\)</span>个元素。 特殊地，当<span class="math inline">\(k=1\)</span>或有一个数组为空时可以直接得到答案。 每次找到一个<span class="math inline">\(p \in [1, \lfloor \frac{k}{2} \rfloor]\)</span>，假设<span class="math inline">\(A[0:p]\)</span>和<span class="math inline">\(B[0:p]\)</span>都在归并的结果内，比较<span class="math inline">\(A_p\)</span>和<span class="math inline">\(B_p\)</span>，如果<span class="math inline">\(A_p &lt; B_p\)</span>则说明<span class="math inline">\(A\)</span>中前<span class="math inline">\(p\)</span>个元素都不大于归并后的第<span class="math inline">\(k\)</span>个元素，否则说明<span class="math inline">\(B\)</span>中前<span class="math inline">\(p\)</span>个元素都不大于归并后的第<span class="math inline">\(k\)</span>个元素。</p>
+<p>当<span class="math inline">\(p\)</span>取<span class="math inline">\(\lfloor \frac{k}{2} \rfloor\)</span>时时间复杂度为<span class="math inline">\(O(log(k)) = O(log(n + m))\)</span>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums1.size() + nums2.size();</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> kth(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, n / <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> (kth(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, n / <span class="number">2</span>) + kth(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, n / <span class="number">2</span> + <span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kth</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums1, <span class="keyword">int</span> n1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums2, <span class="keyword">int</span> n2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1.size() - n1 &gt; nums2.size() - n2)</span><br><span class="line">            <span class="keyword">return</span> kth(nums2, n2, nums1, n1, k);</span><br><span class="line">        <span class="keyword">if</span> (nums1.size() - n1 == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> nums2[n2 + k - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> min(nums1[n1], nums2[n2]);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> p = min(k / <span class="number">2</span>, <span class="keyword">int</span>(nums1.size() - n1));</span><br><span class="line">        <span class="keyword">if</span> (nums1[n1 + p - <span class="number">1</span>] &lt; nums2[n2 + p - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">return</span> kth(nums1, n1 + p, nums2, n2, k - p);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> kth(nums1, n1, nums2, n2 + p, k - p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/24/wait%E5%92%8Csignal%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1102,88 +1184,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/" class="post-title-link" itemprop="url">日本語助詞と助動詞</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-30 16:54:00 16:54:00" itemprop="dateCreated datePublished" datetime="2019-11-30T16:54:00+08:00">2019-11-30 16:54:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/30/日本語助詞と助動詞/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/%E5%8A%A9%E8%A9%9E">Wiki 助詞</a><br />
-<a target="_blank" rel="noopener" href="http://www2.dokkyo.ac.jp/~esemi008/kenkyu/kumagai.html">日本語助詞『と』</a><br />
-<a target="_blank" rel="noopener" href="https://zh.wikibooks.org/wiki/%E6%97%A5%E8%AA%9E/%E6%96%87%E6%B3%95/%E5%8A%A9%E8%A9%9E%E5%8A%A9%E5%8B%95%E8%A9%9E">日语/文法/助词助动词</a><br />
-<a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/%E5%8A%A9%E5%8B%95%E8%A9%9E_(%E5%9B%BD%E6%96%87%E6%B3%95)">Wiki 助動詞 (国文法)</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1255,14 +1255,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
