@@ -154,6 +154,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E9%80%92%E5%BD%92%E8%BD%AC%E5%BE%AA%E7%8E%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="ToRapture">
+      <meta itemprop="description" content="Some notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToRapture's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E9%80%92%E5%BD%92%E8%BD%AC%E5%BE%AA%E7%8E%AF/" class="post-title-link" itemprop="url">二叉树前中后序遍历递归转循环</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-29 17:39:00 17:39:00" itemprop="dateCreated datePublished" datetime="2019-12-29T17:39:00+08:00">2019-12-29 17:39:00</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-07 20:44:25 20:44:25" itemprop="dateModified" datetime="2022-03-07T20:44:25+08:00">2022-03-07 20:44:25</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/12/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E9%80%92%E5%BD%92%E8%BD%AC%E5%BE%AA%E7%8E%AF/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/29/二叉树前中后序遍历递归转循环/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通过观察递归实现，用循环和栈模拟递归实现中结点入栈和出栈的过程。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    Node *left, *right;</span><br><span class="line"></span><br><span class="line">    Node() : left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    Node(<span class="keyword">int</span> val) : val(val), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> StackState &#123;</span><br><span class="line">    AFTER_PUSH_ROOT = <span class="number">0</span>,</span><br><span class="line">    AFTER_PUSH_LEFT = <span class="number">1</span>,</span><br><span class="line">    AFTER_PUSH_RIGHT = <span class="number">2</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_pre_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    ret.push_back(root-&gt;val);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;left) dfs_pre_order(root-&gt;left, ret);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;right) dfs_pre_order(root-&gt;right, ret);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_in_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;left) dfs_in_order(root-&gt;left, ret);</span><br><span class="line">    ret.push_back(root-&gt;val);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;right) dfs_in_order(root-&gt;right, ret);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_post_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;left) dfs_post_order(root-&gt;left, ret);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;right) dfs_post_order(root-&gt;right, ret);</span><br><span class="line">    ret.push_back(root-&gt;val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="built_in">pair</span>&lt;Node *, StackState&gt;&gt; stk;</span><br><span class="line">    stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(root, AFTER_PUSH_ROOT));</span><br><span class="line">    <span class="keyword">while</span> (!stk.empty()) &#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;Node *, StackState&gt; &amp;top = stk.top();</span><br><span class="line">        <span class="keyword">switch</span> (top.second) &#123;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_ROOT:</span><br><span class="line">                ret.push_back(top.first-&gt;val);</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;left) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;left, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_LEFT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_LEFT:</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;right) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;right, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_RIGHT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_RIGHT:</span><br><span class="line">                stk.pop();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">in_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="built_in">pair</span>&lt;Node *, StackState&gt;&gt; stk;</span><br><span class="line">    stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(root, AFTER_PUSH_ROOT));</span><br><span class="line">    <span class="keyword">while</span> (!stk.empty()) &#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;Node *, StackState&gt; &amp;top = stk.top();</span><br><span class="line">        <span class="keyword">switch</span> (top.second) &#123;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_ROOT:</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;left) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;left, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_LEFT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_LEFT:</span><br><span class="line">                ret.push_back(top.first-&gt;val);</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;right) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;right, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_RIGHT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_RIGHT:</span><br><span class="line">                stk.pop();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">post_order</span><span class="params">(Node *root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ret)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="built_in">pair</span>&lt;Node *, StackState&gt;&gt; stk;</span><br><span class="line">    stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(root, AFTER_PUSH_ROOT));</span><br><span class="line">    <span class="keyword">while</span> (!stk.empty()) &#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;Node *, StackState&gt; &amp;top = stk.top();</span><br><span class="line">        <span class="keyword">switch</span> (top.second) &#123;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_ROOT:</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;left) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;left, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_LEFT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_LEFT:</span><br><span class="line">                <span class="keyword">if</span> (top.first-&gt;right) stk.push(<span class="built_in">pair</span>&lt;Node *, StackState&gt;(top.first-&gt;right, AFTER_PUSH_ROOT));</span><br><span class="line">                top.second = AFTER_PUSH_RIGHT;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AFTER_PUSH_RIGHT:</span><br><span class="line">                ret.push_back(top.first-&gt;val);</span><br><span class="line">                stk.pop();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Node *<span class="title">get_tree</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    Node *root = <span class="keyword">new</span> Node(random());</span><br><span class="line">    <span class="built_in">vector</span>&lt;Node *&gt; nodes;</span><br><span class="line">    nodes.push_back(root);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> pos = random() * random() * random() % nodes.size();</span><br><span class="line">        <span class="keyword">if</span> (nodes[pos]-&gt;left == <span class="literal">NULL</span> &amp;&amp; nodes[pos]-&gt;right == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (random() % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                nodes[pos]-&gt;left = <span class="keyword">new</span> Node(random());</span><br><span class="line">                nodes.push_back(nodes[pos]-&gt;left);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nodes[pos]-&gt;right = <span class="keyword">new</span> Node(random());</span><br><span class="line">                nodes.push_back(nodes[pos]-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodes[pos]-&gt;left) &#123;</span><br><span class="line">            nodes[pos]-&gt;right = <span class="keyword">new</span> Node(random());</span><br><span class="line">            nodes.push_back(nodes[pos]-&gt;right);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nodes[pos]-&gt;left = <span class="keyword">new</span> Node(random());</span><br><span class="line">            nodes.push_back(nodes[pos]-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nodes[pos]-&gt;left &amp;&amp; nodes[pos]-&gt;right) &#123;</span><br><span class="line">            nodes.erase(nodes.begin() + pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">free_tree</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;left) free_tree(root-&gt;left);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;right) free_tree(root-&gt;right);</span><br><span class="line">    <span class="keyword">delete</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_pre_order</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Node *tree = get_tree(<span class="number">100000</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dfs_ret, ret;</span><br><span class="line"></span><br><span class="line">    dfs_pre_order(tree, dfs_ret);</span><br><span class="line">    pre_order(tree, ret);</span><br><span class="line">    assert(dfs_ret == ret);</span><br><span class="line"></span><br><span class="line">    free_tree(tree);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_in_order</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Node *tree = get_tree(<span class="number">100000</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dfs_ret, ret;</span><br><span class="line"></span><br><span class="line">    dfs_in_order(tree, dfs_ret);</span><br><span class="line">    in_order(tree, ret);</span><br><span class="line">    assert(dfs_ret == ret);</span><br><span class="line"></span><br><span class="line">    free_tree(tree);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_post_order</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Node *tree = get_tree(<span class="number">100000</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dfs_ret, ret;</span><br><span class="line"></span><br><span class="line">    dfs_post_order(tree, dfs_ret);</span><br><span class="line">    post_order(tree, ret);</span><br><span class="line">    assert(dfs_ret == ret);</span><br><span class="line"></span><br><span class="line">    free_tree(tree);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line"></span><br><span class="line">    test_pre_order();</span><br><span class="line">    test_in_order();</span><br><span class="line">    test_post_order();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/12/29/Median-of-Two-Sorted-Arrays/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1105,85 +1185,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ToRapture's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/" class="post-title-link" itemprop="url">日本語自然言語処理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-30 16:55:00 16:55:00" itemprop="dateCreated datePublished" datetime="2019-11-30T16:55:00+08:00">2019-11-30 16:55:00</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/30/日本語自然言語処理/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="http://www.nltk.org/book-jp/ch12.html">Python による日本語自然言語処理</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1255,7 +1256,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
