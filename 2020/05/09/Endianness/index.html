@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon16.ico">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="What is endianness? Little and big endian are two ways of storing multibyte data-types ( int, float, etc). In little endian machines, last byte of binary representation of the multibyte data-type is">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://torapture.github.io/images/posts/Endianness/0.png">
-<meta property="article:published_time" content="2020-05-09T08:46:00.000Z">
+<meta property="article:published_time" content="2020-05-09T07:46:00.000Z">
 <meta property="article:modified_time" content="2020-10-11T14:07:40.589Z">
 <meta property="article:author" content="ToRapture">
 <meta property="article:tag" content="Network">
@@ -164,7 +164,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
       <meta itemprop="name" content="ToRapture">
-      <meta itemprop="description" content="Some notes">
+      <meta itemprop="description" content="Technology and Interest">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -182,14 +182,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-09 16:46:00 16:46:00" itemprop="dateCreated datePublished" datetime="2020-05-09T16:46:00+08:00">2020-05-09 16:46:00</time>
+              <time title="Created: 2020-05-09 16:46:00 16:46:00" itemprop="dateCreated datePublished" datetime="2020-05-09T16:46:00+09:00">2020-05-09 16:46:00</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-11 22:07:40 22:07:40" itemprop="dateModified" datetime="2020-10-11T22:07:40+08:00">2020-10-11 22:07:40</time>
+                <time title="Modified: 2020-10-11 23:07:40 23:07:40" itemprop="dateModified" datetime="2020-10-11T23:07:40+09:00">2020-10-11 23:07:40</time>
               </span>
 
           
@@ -220,7 +220,7 @@
         <h1 id="what-is-endianness">What is endianness?</h1>
 <p>Little and big endian are two ways of storing multibyte data-types ( int, float, etc). In little endian machines, last byte of binary representation of the multibyte data-type is stored first. On the other hand, in big endian machines, first byte of binary representation of the multibyte data-type is stored first.</p>
 <h1 id="how-to-check">How to check</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">get_endian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="keyword">short</span> s;</span><br><span class="line">        <span class="keyword">char</span> c[<span class="keyword">sizeof</span>(<span class="keyword">short</span>)];</span><br><span class="line">    &#125; un;</span><br><span class="line">    un.s = <span class="number">0x1020</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">sizeof</span>(<span class="keyword">short</span>) != <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;sizeof(short) != 2&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (un.c[<span class="number">0</span>] == <span class="number">0x20</span> &amp;&amp; un.c[<span class="number">1</span>] == <span class="number">0x10</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;little-endian&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (un.c[<span class="number">0</span>] == <span class="number">0x10</span> &amp;&amp; un.c[<span class="number">1</span>] == <span class="number">0x20</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;big-endian&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;unknown&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;endian: &quot;</span> &lt;&lt; get_endian() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG(x) cerr &lt;&lt; #x &lt;&lt; <span class="string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">get_endian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="type">short</span> s;</span><br><span class="line">        <span class="type">char</span> c[<span class="built_in">sizeof</span>(<span class="type">short</span>)];</span><br><span class="line">    &#125; un;</span><br><span class="line">    un.s = <span class="number">0x1020</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">sizeof</span>(<span class="type">short</span>) != <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;sizeof(short) != 2&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (un.c[<span class="number">0</span>] == <span class="number">0x20</span> &amp;&amp; un.c[<span class="number">1</span>] == <span class="number">0x10</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;little-endian&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (un.c[<span class="number">0</span>] == <span class="number">0x10</span> &amp;&amp; un.c[<span class="number">1</span>] == <span class="number">0x20</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;big-endian&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;unknown&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;endian: &quot;</span> &lt;&lt; <span class="built_in">get_endian</span>() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="network-byte-order">Network byte order</h1>
 <p>https://stackoverflow.com/a/997586/13133551</p>
 <blockquote>
@@ -346,7 +346,7 @@
     <img class="site-author-image" itemprop="image" alt="ToRapture"
       src="/uploads/avatar.jpg">
   <p class="site-author-name" itemprop="name">ToRapture</p>
-  <div class="site-description" itemprop="description">Some notes</div>
+  <div class="site-description" itemprop="description">Technology and Interest</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">

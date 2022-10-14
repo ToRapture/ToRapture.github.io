@@ -6,6 +6,8 @@
     
     <lastmod>2022-10-04</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -13,6 +15,8 @@
     
     <lastmod>2022-03-07</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -20,6 +24,8 @@
     
     <lastmod>2022-03-07</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -27,6 +33,8 @@
     
     <lastmod>2022-03-07</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -34,6 +42,8 @@
     
     <lastmod>2022-03-04</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -41,6 +51,8 @@
     
     <lastmod>2022-02-22</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -48,6 +60,8 @@
     
     <lastmod>2022-02-20</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -55,6 +69,8 @@
     
     <lastmod>2021-12-08</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -62,6 +78,8 @@
     
     <lastmod>2021-11-23</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -69,6 +87,8 @@
     
     <lastmod>2021-02-13</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -76,6 +96,8 @@
     
     <lastmod>2021-02-13</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -83,6 +105,8 @@
     
     <lastmod>2020-11-02</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -90,6 +114,8 @@
     
     <lastmod>2020-11-01</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -97,6 +123,8 @@
     
     <lastmod>2020-11-01</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -104,6 +132,8 @@
     
     <lastmod>2020-11-01</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -111,6 +141,8 @@
     
     <lastmod>2020-11-01</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -118,6 +150,8 @@
     
     <lastmod>2020-11-01</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -125,6 +159,8 @@
     
     <lastmod>2020-10-17</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -132,6 +168,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -139,6 +177,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -146,20 +186,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2019/11/28/UNIX%E7%BC%96%E7%A8%8B-%E6%96%87%E4%BB%B6I-O%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/10/04/Ubuntu%E6%9B%B4%E6%94%B9%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E9%80%9F%E5%BA%A6/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -167,13 +195,26 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/26/routetrace/</loc>
+    <loc>https://torapture.github.io/2019/11/28/UNIX%E7%BC%96%E7%A8%8B-%E6%96%87%E4%BB%B6I-O%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/10/04/Ubuntu%E6%9B%B4%E6%94%B9%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E9%80%9F%E5%BA%A6/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -181,6 +222,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/26/routetrace/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -188,6 +240,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -195,13 +249,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -209,6 +258,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2019/11/30/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A9%E8%A9%9E%E3%81%A8%E5%8A%A9%E5%8B%95%E8%A9%9E/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -216,6 +276,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -223,13 +285,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2019/04/26/%E8%AE%A1%E8%92%9C%E5%AE%A238229-Distance-on-the-tree-%E6%A0%91%E5%89%96/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -237,6 +294,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -244,6 +303,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2019/04/26/%E8%AE%A1%E8%92%9C%E5%AE%A238229-Distance-on-the-tree-%E6%A0%91%E5%89%96/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -251,6 +321,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -258,6 +330,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -265,6 +339,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -272,6 +348,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -279,6 +357,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -286,13 +366,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/05/12/TCP-Control-in-Detail/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -300,20 +375,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/05/09/TCP-learn/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/03/31/Token-Bucket-Algorithm/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -321,6 +384,26 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/05/09/TCP-learn/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/05/12/TCP-Control-in-Detail/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -328,6 +411,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/03/31/Token-Bucket-Algorithm/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -335,6 +429,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -342,20 +438,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/13/Prime-and-Factors/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/13/Quick-Sort/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -363,6 +447,26 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/13/Prime-and-Factors/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/13/Quick-Sort/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -370,13 +474,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/10/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -384,6 +483,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/10/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -391,6 +501,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -398,20 +510,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/24/Commands-for-IP/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/03/30/External-sort/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -419,6 +519,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/03/30/External-sort/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -426,20 +537,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/05/23/Flask-Quickstart/</loc>
+    <loc>https://torapture.github.io/2020/04/24/Commands-for-IP/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2017/08/30/HDU-2069-Coin-Change-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -447,6 +555,26 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/05/23/Flask-Quickstart/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2017/08/30/HDU-2069-Coin-Change-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -454,6 +582,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -461,6 +591,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -468,27 +600,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/01/ID-Generator/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/23/IP-checksum/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2020/04/24/IPv4-headers/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -496,6 +609,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -503,13 +618,35 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://torapture.github.io/2020/04/17/Learn-Goroutine/</loc>
+    <loc>https://torapture.github.io/2020/04/23/IP-checksum/</loc>
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/01/ID-Generator/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/24/IPv4-headers/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -517,6 +654,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2020/04/17/Learn-Goroutine/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -524,6 +672,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -531,13 +681,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2018/09/01/Leetcode-85-Maximal-Rectangle/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -545,6 +690,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2018/08/31/Leetcode-85-Maximal-Rectangle/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -552,6 +708,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -559,13 +717,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2019/12/29/Median-of-Two-Sorted-Arrays/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -573,6 +726,17 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2019/12/29/Median-of-Two-Sorted-Arrays/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -580,20 +744,8 @@
     
     <lastmod>2020-10-11</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2019/10/30/Offer%E6%94%B6%E5%89%B2%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E8%B5%9B108/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/2017/09/19/Poj-2352-Stars/</loc>
-    
-    <lastmod>2020-10-11</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
@@ -601,12 +753,32 @@
     
     <lastmod>2020-10-11</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2017/09/19/Poj-2352-Stars/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/2019/10/30/Offer%E6%94%B6%E5%89%B2%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E8%B5%9B108/</loc>
+    
+    <lastmod>2020-10-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
 
   <url>
     <loc>https://torapture.github.io/</loc>
-    <lastmod>2022-10-04</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -614,233 +786,233 @@
   
   <url>
     <loc>https://torapture.github.io/tags/Algorithm/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Network/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/TCP-IP/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Flask/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Python/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/Design/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/MySQL/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Database/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/Design/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Kafka/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/Golang/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Memcached/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/Golang/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/DNS/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Thrift/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/NSQ/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Nginx/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Protobuf/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Redis/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Java/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Regex/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/UNIX%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Ubuntu/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/FFmpeg/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/WebSocket/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/FFmpeg/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E7%BA%A2%E6%A5%BC%E6%A2%A6/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/Work/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://torapture.github.io/tags/Adhoc/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/Game/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E8%89%BE%E5%B0%94%E7%99%BB%E6%B3%95%E7%8E%AF/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/Work/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://torapture.github.io/tags/Adhoc/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://torapture.github.io/tags/%E9%BB%91%E6%9A%97%E4%B9%8B%E9%AD%823/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
 
